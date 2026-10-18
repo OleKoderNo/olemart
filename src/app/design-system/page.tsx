@@ -4,7 +4,7 @@ import Container from "@/components/ui/Container";
 
 export default function DesignSystemPage() {
   return (
-    <main className="min-h-screen bg-slate-50 py-12 text-slate-900">
+    <main className="bg-slate-50 py-12 text-slate-900">
       <Container className="space-y-8">
         <header className="space-y-3">
           <h1 className="text-4xl font-bold">OleMart design system</h1>
