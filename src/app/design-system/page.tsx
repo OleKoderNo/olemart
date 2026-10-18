@@ -1,4 +1,5 @@
 import ButtonDocumentation from "@/components/design-system/buttons/ButtonDocumentation";
+import InputDocumentation from "@/components/design-system/inputs/InputDocumentation";
 
 export default function DesignSystemPage() {
   return (
@@ -12,6 +13,7 @@ export default function DesignSystemPage() {
         </header>
 
         <ButtonDocumentation />
+        <InputDocumentation />
       </div>
     </main>
   );
