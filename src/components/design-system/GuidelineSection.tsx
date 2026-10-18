@@ -7,6 +7,10 @@ type GuidelineSectionProps = {
   children: ReactNode;
 };
 
+/**
+ * Wraps component documentation in a consistently styled section.
+ * Uses the supplied ID for anchor navigation and heading association.
+ */
 export default function GuidelineSection({
   id,
   title,

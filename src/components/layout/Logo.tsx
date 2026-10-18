@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+/** Renders the OleMart brand as a link to the homepage. */
 export default function Logo() {
   return (
     <Link

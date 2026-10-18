@@ -2,6 +2,7 @@ type CodeExampleProps = {
   code: string;
 };
 
+/** Displays a code example in a keyboard-focusable, scrollable block. */
 export default function CodeExample({ code }: CodeExampleProps) {
   return (
     <pre

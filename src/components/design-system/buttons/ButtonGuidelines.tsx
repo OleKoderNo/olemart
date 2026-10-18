@@ -1,5 +1,6 @@
 import CodeExample from "@/components/design-system/CodeExample";
 
+/** Explains when to use each button theme and demonstrates its usage. */
 export default function ButtonGuidelines() {
   return (
     <div className="space-y-4">

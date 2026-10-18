@@ -2,6 +2,7 @@ import CodeExample from "@/components/design-system/CodeExample";
 import GuidelineSection from "@/components/design-system/GuidelineSection";
 import Container from "@/components/ui/Container";
 
+/** Documents shared container spacing and demonstrates its layout. */
 export default function ContainerDocumentation() {
   return (
     <GuidelineSection

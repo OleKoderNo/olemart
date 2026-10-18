@@ -5,6 +5,7 @@ type DesignSystemNavProps = {
   }[];
 };
 
+/** Renders anchor links to the registered design-system sections. */
 export default function DesignSystemNav({ sections }: DesignSystemNavProps) {
   return (
     <nav aria-label="Design system">

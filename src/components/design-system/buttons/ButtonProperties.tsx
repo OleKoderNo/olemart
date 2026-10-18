@@ -22,6 +22,7 @@ const properties = [
   },
 ];
 
+/** Lists the supported button properties, defaults, and intended uses. */
 export default function ButtonProperties() {
   return (
     <div className="space-y-4">

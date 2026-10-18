@@ -1,6 +1,7 @@
 import CodeExample from "@/components/design-system/CodeExample";
 import GuidelineSection from "@/components/design-system/GuidelineSection";
 
+/** Documents desktop and mobile navigation behaviour and keyboard interaction. */
 export default function HeaderDocumentation() {
   return (
     <GuidelineSection

@@ -1,6 +1,7 @@
 import CodeExample from "@/components/design-system/CodeExample";
 import GuidelineSection from "@/components/design-system/GuidelineSection";
 
+/** Documents footer placement, responsive layout, and usage. */
 export default function FooterDocumentation() {
   return (
     <GuidelineSection

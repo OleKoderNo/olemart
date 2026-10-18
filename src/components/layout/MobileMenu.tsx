@@ -7,6 +7,10 @@ type MobileMenuProps = {
   onClose: () => void;
 };
 
+/**
+ * Renders the animated mobile navigation dropdown beneath its trigger.
+ * Prevents interaction while closed and respects reduced-motion preferences.
+ */
 export default function MobileMenu({
   isOpen,
   pathname,

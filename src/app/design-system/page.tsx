@@ -2,6 +2,7 @@ import DesignSystemNav from "@/components/design-system/DesignSystemNav";
 import { designSystemSections } from "@/components/design-system/sections";
 import Container from "@/components/ui/Container";
 
+/** Renders the design-system guide from the registered documentation sections. */
 export default function DesignSystemPage() {
   return (
     <main className="bg-slate-50 py-12 text-slate-900">

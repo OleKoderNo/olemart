@@ -6,6 +6,11 @@ import Button from "@/components/ui/Button";
 import MobileMenu from "./MobileMenu";
 import NavLinks from "./NavLinks";
 
+/**
+ * Renders desktop navigation and controls the mobile dropdown.
+ * Closes the dropdown on outside interaction, focus leaving,
+ * Escape, or selection of a navigation link.
+ */
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);

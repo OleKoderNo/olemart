@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 
+/** Renders the shared site header with branding and responsive navigation. */
 export default function Header() {
   return (
     <header className="relative z-50 border-b border-slate-200 bg-white">

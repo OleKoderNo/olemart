@@ -17,6 +17,10 @@ const themes: Record<ButtonTheme, string> = {
     "bg-red-700 text-white enabled:hover:bg-red-800 focus-visible:outline-red-700",
 };
 
+/**
+ * Renders a themed button with native HTML button attributes.
+ * Defaults to the primary theme and type="button".
+ */
 export default function Button({
   text,
   theme = "primary",

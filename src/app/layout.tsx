@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   description: "Browse products and discover deals at OleMart.",
 };
 
+/** Defines the root document, fonts, header, content area, and footer. */
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html

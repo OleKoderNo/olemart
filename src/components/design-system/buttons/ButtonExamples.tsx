@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 
+/** Demonstrates button themes, disabled states, and click handling. */
 export default function ButtonExamples() {
   const [clickCount, setClickCount] = useState(0);
 

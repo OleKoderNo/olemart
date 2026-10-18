@@ -3,6 +3,10 @@ import clsx from "clsx";
 
 type ContainerProps = ComponentPropsWithoutRef<"div">;
 
+/**
+ * Centres content within a shared maximum width and responsive side padding.
+ * Accepts native div attributes and additional CSS classes.
+ */
 export default function Container({
   children,
   className,

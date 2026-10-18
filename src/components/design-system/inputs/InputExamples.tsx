@@ -1,5 +1,9 @@
 import Input from "@/components/ui/Input";
 
+/**
+ * Demonstrates standard, search, error, and disabled input states.
+ * The error example is static and does not perform validation.
+ */
 export default function InputExamples() {
   return (
     <div className="space-y-4">

@@ -8,6 +8,11 @@ type InputProps = ComponentPropsWithoutRef<"input"> & {
   error?: string;
 };
 
+/**
+ * Renders a labelled input with optional help text and an error message.
+ * Connects descriptive text to the input for accessibility.
+ * Validation is handled by the parent form.
+ */
 export default function Input({
   id,
   label,

@@ -1,5 +1,6 @@
 import CodeExample from "@/components/design-system/CodeExample";
 
+/** Documents input labels, help text, errors, and basic usage. */
 export default function InputGuidelines() {
   return (
     <div className="space-y-4">

@@ -13,6 +13,10 @@ const links = [
   { href: "/cart", text: "Cart" },
 ];
 
+/**
+ * Renders shared navigation links and identifies the current page.
+ * Calls onNavigate when a link is selected, when provided.
+ */
 export default function NavLinks({
   pathname,
   onNavigate,

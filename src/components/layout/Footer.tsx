@@ -7,6 +7,7 @@ const links = [
   { href: "/design-system", text: "Design system" },
 ];
 
+/** Renders shared footer information, supporting navigation, and a GitHub link. */
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white">
