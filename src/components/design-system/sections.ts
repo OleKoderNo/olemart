@@ -1,12 +1,12 @@
 import ButtonDocumentation from "./buttons/ButtonDocumentation";
 import ContainerDocumentation from "./container/ContainerDocumentation";
-import HeaderDocumentation from "./header/HeaderDocumentation";
 import FooterDocumentation from "./footer/FooterDocumentation";
+import HeaderDocumentation from "./header/HeaderDocumentation";
 import InputDocumentation from "./inputs/InputDocumentation";
+import ProductPriceDocumentation from "./product-price/ProductPriceDocumentation";
 
 /**
- * Defines the display order, navigation labels, and documentation components
- * used by the design-system page.
+ * Defines navigation labels, documentation components, and display order.
  * IDs must match the corresponding documentation section IDs.
  */
 export const designSystemSections = [
@@ -34,5 +34,10 @@ export const designSystemSections = [
     id: "inputs",
     title: "Inputs",
     component: InputDocumentation,
+  },
+  {
+    id: "product-price",
+    title: "Product pricing",
+    component: ProductPriceDocumentation,
   },
 ];
