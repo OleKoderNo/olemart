@@ -1,5 +1,5 @@
-import ButtonDocumentation from "@/components/design-system/buttons/ButtonDocumentation";
-import InputDocumentation from "@/components/design-system/inputs/InputDocumentation";
+import DesignSystemNav from "@/components/design-system/DesignSystemNav";
+import { designSystemSections } from "@/components/design-system/sections";
 
 export default function DesignSystemPage() {
   return (
@@ -12,8 +12,11 @@ export default function DesignSystemPage() {
           </p>
         </header>
 
-        <ButtonDocumentation />
-        <InputDocumentation />
+        <DesignSystemNav sections={designSystemSections} />
+
+        {designSystemSections.map(({ id, component: Component }) => (
+          <Component key={id} />
+        ))}
       </div>
     </main>
   );
