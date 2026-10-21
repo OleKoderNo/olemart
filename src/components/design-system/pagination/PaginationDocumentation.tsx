@@ -22,6 +22,10 @@ export default function PaginationDocumentation() {
           Supply onPageChange from a client component to update local state
           instead of navigating.
         </li>
+        <li>
+          Pass query parameters using the query prop to preserve sorting between
+          pages.
+        </li>
       </ul>
 
       <CodeExample

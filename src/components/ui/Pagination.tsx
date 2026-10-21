@@ -4,6 +4,7 @@ import PaginationLink from "./PaginationLink";
 type PaginationProps = {
   meta: Pick<PaginationMeta, "currentPage" | "pageCount">;
   basePath?: string;
+  query?: Record<string, string>;
   onPageChange?: (page: number) => void;
 };
 
@@ -15,6 +16,7 @@ type PaginationProps = {
 export default function Pagination({
   meta,
   basePath = "/",
+  query = {},
   onPageChange,
 }: PaginationProps) {
   const { currentPage, pageCount } = meta;
@@ -27,10 +29,15 @@ export default function Pagination({
   const previousPage = Math.max(1, currentPage - 1);
   const nextPage = Math.min(pageCount, currentPage + 1);
 
-  /** Supplies URL navigation or a local page-change handler. */
+  /** Preserves supplied query parameters when linking to another page. */
   function pageProps(page: number) {
+    const params = new URLSearchParams({
+      ...query,
+      page: String(page),
+    });
+
     return {
-      href: `${basePath}?page=${page}`,
+      href: `${basePath}?${params.toString()}`,
       onClick: onPageChange ? () => onPageChange(page) : undefined,
     };
   }

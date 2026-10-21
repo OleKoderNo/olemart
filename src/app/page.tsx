@@ -14,17 +14,12 @@ export default function HomePage({ searchParams }: HomePageProps) {
       <Container className="space-y-10">
         <header className="space-y-3">
           <h1 className="text-3xl font-bold sm:text-4xl">Welcome to OleMart</h1>
-
           <p className="text-slate-600">
             Browse our collection and find your next favourite.
           </p>
         </header>
 
         <section aria-labelledby="products-heading" className="space-y-6">
-          <h2 id="products-heading" className="text-2xl font-semibold">
-            Our products
-          </h2>
-
           <Suspense fallback={<ProductListingLoading />}>
             <ProductListing searchParams={searchParams} />
           </Suspense>

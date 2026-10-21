@@ -1,53 +1,64 @@
-import Link from "next/link";
-import { getProducts } from "@/lib/api/products";
+import { redirect } from "next/navigation";
+import { getAllProducts } from "@/lib/api/products";
+import { parseProductSort, sortProducts } from "@/lib/products/productSorting";
 import ProductGrid from "./ProductGrid";
+import ProductSortNavigation from "./ProductSortNavigation";
 import Pagination from "@/components/ui/Pagination";
 
 type ProductListingProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
-/**
- * Fetches and displays the requested product page.
- * Missing or invalid page parameters default to page one.
- */
+const PRODUCTS_PER_PAGE = 9;
+
+/** Sorts the full catalogue before selecting the requested product page. */
 export default async function ProductListing({
   searchParams,
 }: ProductListingProps) {
-  const { page } = await searchParams;
+  const params = await searchParams;
+  const sort = parseProductSort(params.sort);
 
   const requestedPage =
-    typeof page === "string" && /^\d+$/.test(page) ? Number(page) : 1;
+    typeof params.page === "string" && /^\d+$/.test(params.page)
+      ? Number(params.page)
+      : 1;
 
   const currentPage =
     Number.isSafeInteger(requestedPage) && requestedPage > 0
       ? requestedPage
       : 1;
 
-  const { data: products, meta } = await getProducts(currentPage);
+  const products = await getAllProducts();
+  const sortedProducts = sortProducts(products, sort);
+  const pageCount = Math.max(
+    1,
+    Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE),
+  );
 
-  if (products.length === 0 && currentPage > 1) {
-    return (
-      <div className="space-y-3">
-        <p className="text-slate-600">There are no products on this page.</p>
-
-        <Link
-          href="/"
-          className="inline-flex min-h-11 items-center rounded px-2
-            font-medium underline underline-offset-4
-            focus-visible:outline-2 focus-visible:outline-offset-2
-            focus-visible:outline-slate-900"
-        >
-          Return to the first page
-        </Link>
-      </div>
-    );
+  if (currentPage > pageCount) {
+    redirect(`/?sort=${sort}&page=${pageCount}`);
   }
 
+  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const visibleProducts = sortedProducts.slice(
+    startIndex,
+    startIndex + PRODUCTS_PER_PAGE,
+  );
+
   return (
-    <div className="space-y-8">
-      <ProductGrid products={products} />
-      <Pagination meta={meta} />
+    <div className="space-y-6">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <h2
+          id="products-heading"
+          className="text-2xl font-semibold text-slate-900"
+        >
+          Our products
+        </h2>
+        <ProductSortNavigation key={sort} currentSort={sort} />
+      </div>
+
+      <ProductGrid products={visibleProducts} />
+      <Pagination meta={{ currentPage, pageCount }} query={{ sort }} />
     </div>
   );
 }
