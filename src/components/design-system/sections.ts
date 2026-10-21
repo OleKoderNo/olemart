@@ -14,6 +14,7 @@ import ProductSearchDocumentation from "./product-search/ProductSearchDocumentat
 import ProductSortDocumentation from "./product-sort/ProductSortDocumentation";
 import TextareaDocumentation from "./textarea/TextareaDocumentation";
 import ContactDocumentation from "./contact/ContactDocumentation";
+import ToastDocumentation from "./toast/ToastDocumentation";
 
 /**
  * Defines navigation labels, documentation components, and display order.
@@ -99,5 +100,10 @@ export const designSystemSections = [
     id: "contact-form",
     title: "Contact form",
     component: ContactDocumentation,
+  },
+  {
+    id: "toasts",
+    title: "Toasts",
+    component: ToastDocumentation,
   },
 ];
