@@ -1,6 +1,7 @@
 import GuidelineSection from "@/components/design-system/GuidelineSection";
 import CodeExample from "@/components/design-system/CodeExample";
 import CartExamples from "./CartExamples";
+import MiniCartExamples from "./MiniCartExamples";
 
 /** Documents cart actions, shared state, and isolated previews. */
 export default function CartDocumentation() {
@@ -35,6 +36,20 @@ export default function CartDocumentation() {
           The documentation checkout clears only its demo cart and displays
           confirmation without navigating.
         </li>
+        <li>
+          The header cart icon displays a badge with the total item quantity.
+        </li>
+        <li>
+          The mini cart supports quantity changes and removal. Its item totals,
+          summary, and header badge update together.
+        </li>
+        <li>
+          View cart opens the full cart page, where checkout is available.
+        </li>
+        <li>
+          Clicking outside, pressing Escape, or moving focus outside closes the
+          mini cart.
+        </li>
       </ul>
 
       <CodeExample
@@ -49,6 +64,17 @@ export default function CartDocumentation() {
       </p>
 
       <CartExamples />
+
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold">Mini cart</h3>
+
+        <p className="text-sm text-slate-600">
+          Add a demo item, then open the cart icon. This preview has its own
+          temporary cart, and View cart stays on this documentation page.
+        </p>
+
+        <MiniCartExamples />
+      </div>
     </GuidelineSection>
   );
 }

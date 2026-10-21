@@ -1,6 +1,5 @@
 import Link from "next/link";
 import clsx from "clsx";
-import CartCount from "@/components/cart/CartCount";
 
 type NavLinksProps = {
   pathname: string;
@@ -11,7 +10,6 @@ type NavLinksProps = {
 const links = [
   { href: "/", text: "Shop" },
   { href: "/contact", text: "Contact" },
-  { href: "/cart", text: "Cart" },
 ];
 
 /**
@@ -43,7 +41,6 @@ export default function NavLinks({
             )}
           >
             {text}
-            {href === "/cart" && <CartCount />}
           </Link>
         </li>
       ))}
