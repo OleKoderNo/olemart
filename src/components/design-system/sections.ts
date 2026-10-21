@@ -12,6 +12,8 @@ import ProductDetailsDocumentation from "./product-details/ProductDetailsDocumen
 import CartDocumentation from "./cart/CartDocumentation";
 import ProductSearchDocumentation from "./product-search/ProductSearchDocumentation";
 import ProductSortDocumentation from "./product-sort/ProductSortDocumentation";
+import TextareaDocumentation from "./textarea/TextareaDocumentation";
+import ContactDocumentation from "./contact/ContactDocumentation";
 
 /**
  * Defines navigation labels, documentation components, and display order.
@@ -87,5 +89,15 @@ export const designSystemSections = [
     id: "product-sort",
     title: "Product sorting",
     component: ProductSortDocumentation,
+  },
+  {
+    id: "textarea",
+    title: "Textarea",
+    component: TextareaDocumentation,
+  },
+  {
+    id: "contact-form",
+    title: "Contact form",
+    component: ContactDocumentation,
   },
 ];
