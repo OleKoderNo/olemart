@@ -6,6 +6,7 @@ import InputDocumentation from "./inputs/InputDocumentation";
 import ProductPriceDocumentation from "./product-price/ProductPriceDocumentation";
 import ProductRatingDocumentation from "./product-rating/ProductRatingDocumentation";
 import ProductCardDocumentation from "./product-card/ProductCardDocumentation";
+import ProductGridDocumentation from "./product-grid/ProductGridDocumentation";
 
 /**
  * Defines navigation labels, documentation components, and display order.
@@ -51,5 +52,10 @@ export const designSystemSections = [
     id: "product-card",
     title: "Product card",
     component: ProductCardDocumentation,
+  },
+  {
+    id: "product-grid",
+    title: "Product grid",
+    component: ProductGridDocumentation,
   },
 ];
