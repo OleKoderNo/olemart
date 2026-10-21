@@ -10,6 +10,7 @@ import ProductGridDocumentation from "./product-grid/ProductGridDocumentation";
 import PaginationDocumentation from "./pagination/PaginationDocumentation";
 import ProductDetailsDocumentation from "./product-details/ProductDetailsDocumentation";
 import CartDocumentation from "./cart/CartDocumentation";
+import ProductSearchDocumentation from "./product-search/ProductSearchDocumentation";
 
 /**
  * Defines navigation labels, documentation components, and display order.
@@ -75,5 +76,10 @@ export const designSystemSections = [
     id: "cart",
     title: "Shopping cart",
     component: CartDocumentation,
+  },
+  {
+    id: "product-search",
+    title: "Product search",
+    component: ProductSearchDocumentation,
   },
 ];

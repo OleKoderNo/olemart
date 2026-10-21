@@ -36,6 +36,7 @@ export async function getProducts(
  * or the response cannot be parsed as JSON.
  */
 export async function getProduct(id: string): Promise<Product | null> {
+  // Reject malformed IDs before requesting a product from the API.
   const uuidPattern =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -58,4 +59,24 @@ export async function getProduct(id: string): Promise<Product | null> {
   const result: SingleResponse<Product> = await response.json();
 
   return result.data;
+}
+
+/**
+ * Fetches every product page so search covers the entire catalogue.
+ *
+ * @returns All products across the API's pagination.
+ * @throws If any product page cannot be loaded.
+ */
+export async function getAllProducts(): Promise<Product[]> {
+  const products: Product[] = [];
+  let page: number | null = 1;
+
+  while (page !== null) {
+    const result: PaginatedResponse<Product> = await getProducts(page);
+
+    products.push(...result.data);
+    page = result.meta.nextPage;
+  }
+
+  return products;
 }
