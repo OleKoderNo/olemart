@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import type { Product } from "@/types/product";
 import DiscountBadge from "./DiscountBadge";
@@ -9,12 +10,14 @@ import ProductReviews from "./ProductReviews";
 type ProductDetailsProps = {
   product: Product;
   headingLevel?: 1 | 3;
+  actions?: ReactNode;
 };
 
-/** Displays product information, pricing, tags, and customer reviews. */
+/** Displays product information, pricing, tags, optional actions, and customer reviews. */
 export default function ProductDetails({
   product,
   headingLevel = 1,
+  actions,
 }: ProductDetailsProps) {
   const Title = headingLevel === 1 ? "h1" : "h3";
   const ReviewsHeading = headingLevel === 1 ? "h2" : "h4";
@@ -58,6 +61,7 @@ export default function ProductDetails({
           </p>
 
           <ProductTags tags={product.tags} />
+          {actions}
         </div>
       </div>
 

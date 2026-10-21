@@ -1,5 +1,6 @@
 import Link from "next/link";
 import clsx from "clsx";
+import CartCount from "@/components/cart/CartCount";
 
 type NavLinksProps = {
   pathname: string;
@@ -15,6 +16,7 @@ const links = [
 
 /**
  * Renders shared navigation links and identifies the current page.
+ * Displays the total item quantity beside the Cart link.
  * Calls onNavigate when a link is selected, when provided.
  */
 export default function NavLinks({
@@ -31,7 +33,7 @@ export default function NavLinks({
             onClick={onNavigate}
             aria-current={pathname === href ? "page" : undefined}
             className={clsx(
-              "flex min-h-11 items-center justify-center rounded-lg px-4 py-3 text-center",
+              "flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-3 text-center",
               "text-sm font-medium",
               "focus-visible:outline-2 focus-visible:outline-offset-2",
               "focus-visible:outline-slate-900",
@@ -41,6 +43,7 @@ export default function NavLinks({
             )}
           >
             {text}
+            {href === "/cart" && <CartCount />}
           </Link>
         </li>
       ))}

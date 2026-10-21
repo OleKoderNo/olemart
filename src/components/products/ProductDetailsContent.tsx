@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import { getProduct } from "@/lib/api/products";
+import AddToCartButton from "@/components/cart/AddToCartButton";
 import ProductDetails from "./ProductDetails";
 
 type ProductDetailsContentProps = {
   params: Promise<{ id: string }>;
 };
 
-/** Loads the requested product or displays the product-not-found page. */
+/** Loads a product and connects its details to the shopping cart. */
 export default async function ProductDetailsContent({
   params,
 }: ProductDetailsContentProps) {
@@ -17,5 +18,10 @@ export default async function ProductDetailsContent({
     notFound();
   }
 
-  return <ProductDetails product={product} />;
+  return (
+    <ProductDetails
+      product={product}
+      actions={<AddToCartButton key={product.id} product={product} />}
+    />
+  );
 }
