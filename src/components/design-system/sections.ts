@@ -7,6 +7,7 @@ import ProductPriceDocumentation from "./product-price/ProductPriceDocumentation
 import ProductRatingDocumentation from "./product-rating/ProductRatingDocumentation";
 import ProductCardDocumentation from "./product-card/ProductCardDocumentation";
 import ProductGridDocumentation from "./product-grid/ProductGridDocumentation";
+import PaginationDocumentation from "./pagination/PaginationDocumentation";
 
 /**
  * Defines navigation labels, documentation components, and display order.
@@ -57,5 +58,10 @@ export const designSystemSections = [
     id: "product-grid",
     title: "Product grid",
     component: ProductGridDocumentation,
+  },
+  {
+    id: "pagination",
+    title: "Pagination",
+    component: PaginationDocumentation,
   },
 ];

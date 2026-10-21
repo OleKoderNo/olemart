@@ -1,0 +1,76 @@
+import type { PaginationMeta } from "@/types/api";
+import PaginationLink from "./PaginationLink";
+
+type PaginationProps = {
+  meta: Pick<PaginationMeta, "currentPage" | "pageCount">;
+  basePath?: string;
+  onPageChange?: (page: number) => void;
+};
+
+/**
+ * Displays pagination using API metadata.
+ * Uses links by default, or buttons when onPageChange is provided.
+ * Hidden when fewer than two pages exist.
+ */
+export default function Pagination({
+  meta,
+  basePath = "/",
+  onPageChange,
+}: PaginationProps) {
+  const { currentPage, pageCount } = meta;
+
+  if (pageCount <= 1) {
+    return null;
+  }
+
+  const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
+  const previousPage = Math.max(1, currentPage - 1);
+  const nextPage = Math.min(pageCount, currentPage + 1);
+
+  /** Supplies URL navigation or a local page-change handler. */
+  function pageProps(page: number) {
+    return {
+      href: `${basePath}?page=${page}`,
+      onClick: onPageChange ? () => onPageChange(page) : undefined,
+    };
+  }
+
+  return (
+    <nav aria-label="Pagination" className="space-y-3">
+      <p aria-live="polite" className="text-center text-sm text-slate-600">
+        Page {currentPage} of {pageCount}
+      </p>
+
+      <ul className="flex flex-wrap items-center justify-center gap-2">
+        <li>
+          <PaginationLink
+            {...pageProps(previousPage)}
+            text="Previous"
+            label="Go to previous page"
+            disabled={currentPage === 1}
+          />
+        </li>
+
+        {pages.map((page) => (
+          <li key={page}>
+            <PaginationLink
+              {...pageProps(page)}
+              text={String(page)}
+              label={`Go to page ${page}`}
+              active={page === currentPage}
+            />
+          </li>
+        ))}
+
+        <li>
+          <PaginationLink
+            {...pageProps(nextPage)}
+            text="Next"
+            label="Go to next page"
+            disabled={currentPage === pageCount}
+          />
+        </li>
+      </ul>
+    </nav>
+  );
+}
