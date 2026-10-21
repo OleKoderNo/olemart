@@ -9,7 +9,7 @@ type PaginationProps = {
 };
 
 /**
- * Displays pagination using API metadata.
+ * Displays pagination with compact spacing on mobile.
  * Uses links by default, or buttons when onPageChange is provided.
  * Hidden when fewer than two pages exist.
  */
@@ -48,8 +48,8 @@ export default function Pagination({
         Page {currentPage} of {pageCount}
       </p>
 
-      <ul className="flex flex-wrap items-center justify-center gap-2">
-        <li>
+      <ul className="flex items-center justify-center gap-1 sm:gap-2">
+        <li className="shrink-0">
           <PaginationLink
             {...pageProps(previousPage)}
             text="Previous"
@@ -59,7 +59,7 @@ export default function Pagination({
         </li>
 
         {pages.map((page) => (
-          <li key={page}>
+          <li key={page} className="shrink-0">
             <PaginationLink
               {...pageProps(page)}
               text={String(page)}
@@ -69,7 +69,7 @@ export default function Pagination({
           </li>
         ))}
 
-        <li>
+        <li className="shrink-0">
           <PaginationLink
             {...pageProps(nextPage)}
             text="Next"

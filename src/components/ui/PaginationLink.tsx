@@ -10,7 +10,10 @@ type PaginationLinkProps = {
   onClick?: () => void;
 };
 
-/** Renders a page link, or a button for locally controlled pagination. */
+/**
+ * Renders a page link, or a button for locally controlled pagination.
+ * Uses compact widths on mobile while preserving a comfortable tap height.
+ */
 export default function PaginationLink({
   href,
   text,
@@ -20,8 +23,9 @@ export default function PaginationLink({
   onClick,
 }: PaginationLinkProps) {
   const className = clsx(
-    "inline-flex min-h-11 min-w-11 items-center justify-center",
-    "rounded-lg border px-3 py-2 text-sm font-medium",
+    "inline-flex min-h-11 min-w-9 items-center justify-center sm:min-w-11",
+    "whitespace-nowrap rounded-lg border px-2 py-2 text-xs font-medium",
+    "sm:px-3 sm:text-sm",
     "transition-colors motion-reduce:transition-none",
     {
       "cursor-not-allowed border-slate-200 text-slate-400": disabled,
