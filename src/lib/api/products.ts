@@ -31,14 +31,18 @@ export async function getProducts(
  * Fetches a single product by its ID, including its reviews.
  *
  * @param id - The unique ID of the product.
- * @returns The requested product.
- * @throws If the request fails, the API returns an unsuccessful status,
- * or the response cannot be parsed as JSON.
+ * @returns The requested product, or null if the API returns 404.
+ * @throws If the request fails, the API returns an unsuccessful status
+ * other than 404, or the response cannot be parsed as JSON.
  */
-export async function getProduct(id: string): Promise<Product> {
+export async function getProduct(id: string): Promise<Product | null> {
   const response = await fetch(`${PRODUCTS_URL}/${encodeURIComponent(id)}`, {
     cache: "no-store",
   });
+
+  if (response.status === 404) {
+    return null;
+  }
 
   if (!response.ok) {
     throw new Error(`Unable to load product (${response.status}).`);

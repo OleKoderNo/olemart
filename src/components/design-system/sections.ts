@@ -8,6 +8,7 @@ import ProductRatingDocumentation from "./product-rating/ProductRatingDocumentat
 import ProductCardDocumentation from "./product-card/ProductCardDocumentation";
 import ProductGridDocumentation from "./product-grid/ProductGridDocumentation";
 import PaginationDocumentation from "./pagination/PaginationDocumentation";
+import ProductDetailsDocumentation from "./product-details/ProductDetailsDocumentation";
 
 /**
  * Defines navigation labels, documentation components, and display order.
@@ -63,5 +64,10 @@ export const designSystemSections = [
     id: "pagination",
     title: "Pagination",
     component: PaginationDocumentation,
+  },
+  {
+    id: "product-details",
+    title: "Product details",
+    component: ProductDetailsDocumentation,
   },
 ];
