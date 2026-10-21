@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+
   turbopack: {
     rules: {
       "*.css": {
@@ -11,6 +11,21 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "static.noroff.dev",
+        pathname: "/api/online-shop/**",
+      },
+      {
+        protocol: "https",
+        hostname: "static.cloud.noroff.dev",
+        pathname: "/api/online-shop/**",
+      },
+    ],
   },
 };
 
