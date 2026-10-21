@@ -16,7 +16,6 @@ export default function CartDocumentation() {
         <li>The navbar count includes all units, not just unique products.</li>
         <li>Totals use the shared pricing rules and are calculated in øre.</li>
         <li>Client components access cart data through useCart().</li>
-        <li>The cart currently resets when the browser refreshes.</li>
         <li>Quantity controls increase or decrease the selected quantity.</li>
         <li>The minimum quantity is one. Use Remove to delete an item.</li>
         <li>Item totals and the cart summary update when quantities change.</li>
@@ -27,6 +26,14 @@ export default function CartDocumentation() {
         </li>
         <li>
           Documentation previews use temporary carts and reset on refresh.
+        </li>
+        <li>Checkout clears the cart and opens a confirmation page.</li>
+        <li>
+          Checkout is a simulation; no payment or real order is processed.
+        </li>
+        <li>
+          The documentation checkout clears only its demo cart and displays
+          confirmation without navigating.
         </li>
       </ul>
 

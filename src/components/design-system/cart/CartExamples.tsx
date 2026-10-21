@@ -1,15 +1,35 @@
 "use client";
 
+import { useState } from "react";
 import CartProvider from "@/components/cart/CartProvider";
 import CartContents from "@/components/cart/CartContents";
 import AddToCartButton from "@/components/cart/AddToCartButton";
+import CheckoutButton from "@/components/cart/CheckoutButton";
+import CheckoutConfirmation from "@/components/checkout/CheckoutConfirmation";
 import Button from "@/components/ui/Button";
 import { useCart } from "@/hooks/useCart";
 import { exampleProduct } from "../product-card/exampleProduct";
 
-/** Demonstrates adding, adjusting, removing, and clearing demo items. */
+/** Demonstrates cart interactions and checkout without leaving the page. */
 function CartPreview() {
   const { itemCount, clearCart } = useCart();
+  const [isComplete, setIsComplete] = useState(false);
+
+  if (isComplete) {
+    return (
+      <div className="space-y-4">
+        <div role="status">
+          <CheckoutConfirmation headingLevel={3} />
+        </div>
+
+        <Button
+          text="Restart demo"
+          theme="secondary"
+          onClick={() => setIsComplete(false)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -24,12 +44,16 @@ function CartPreview() {
         />
       </div>
 
-      <CartContents />
+      <CartContents
+        checkoutAction={
+          <CheckoutButton onComplete={() => setIsComplete(true)} />
+        }
+      />
     </div>
   );
 }
 
-/** Provides an isolated cart for interactive documentation examples. */
+/** Keeps documentation cart and checkout actions isolated from the shop. */
 export default function CartExamples() {
   return (
     <CartProvider>

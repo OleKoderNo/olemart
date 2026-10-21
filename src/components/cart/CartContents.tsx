@@ -1,11 +1,16 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useCart } from "@/hooks/useCart";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
 
-/** Displays loading feedback, cart items, or the empty-cart state. */
-export default function CartContents() {
+type CartContentsProps = {
+  checkoutAction?: ReactNode;
+};
+
+/** Displays loading feedback, cart items, and optional checkout controls. */
+export default function CartContents({ checkoutAction }: CartContentsProps) {
   const { items, isReady, itemCount, total, setQuantity, removeItem } =
     useCart();
 
@@ -55,7 +60,11 @@ export default function CartContents() {
         </ul>
       </section>
 
-      <CartSummary itemCount={itemCount} total={total} />
+      <CartSummary
+        itemCount={itemCount}
+        total={total}
+        actions={checkoutAction}
+      />
 
       <p role="status" className="sr-only">
         Cart contains {itemCount} {itemCount === 1 ? "item" : "items"}. Total:{" "}

@@ -1,10 +1,17 @@
+import type { ReactNode } from "react";
+
 type CartSummaryProps = {
   itemCount: number;
   total: number;
+  actions?: ReactNode;
 };
 
-/** Displays the total item quantity and price in NOK. */
-export default function CartSummary({ itemCount, total }: CartSummaryProps) {
+/** Displays cart totals and optional checkout controls. */
+export default function CartSummary({
+  itemCount,
+  total,
+  actions,
+}: CartSummaryProps) {
   return (
     <section
       aria-label="Cart summary"
@@ -23,6 +30,8 @@ export default function CartSummary({ itemCount, total }: CartSummaryProps) {
           <dd className="font-semibold tabular-nums">{total.toFixed(2)} NOK</dd>
         </div>
       </dl>
+
+      {actions}
     </section>
   );
 }

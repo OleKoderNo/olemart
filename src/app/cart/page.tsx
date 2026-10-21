@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import CartContents from "@/components/cart/CartContents";
+import CheckoutButton from "@/components/cart/CheckoutButton";
 
 export const metadata: Metadata = {
   title: "Shopping cart",
@@ -27,7 +28,7 @@ export default function CartPage() {
           </Link>
         </header>
 
-        <CartContents />
+        <CartContents checkoutAction={<CheckoutButton />} />
       </Container>
     </main>
   );
