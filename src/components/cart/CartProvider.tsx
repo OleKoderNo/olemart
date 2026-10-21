@@ -1,27 +1,28 @@
 "use client";
 
-import { useReducer, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { CartContext, type CartContextValue } from "@/context/CartContext";
-import { cartReducer } from "@/lib/cart/cartReducer";
+import { useCartState } from "@/hooks/useCartState";
 import { getCartItemCount, getCartTotal } from "@/lib/cart/cartTotals";
-import type { CartItem } from "@/types/cart";
 
 type CartProviderProps = {
   children: ReactNode;
+  persist?: boolean;
 };
-
-const initialItems: CartItem[] = [];
 
 /**
  * Shares cart state and actions with its children.
- * State lasts while the provider is mounted; refreshing resets the cart.
+ * Enable persist for the shop; leave it disabled for documentation previews.
  */
-export default function CartProvider({ children }: CartProviderProps) {
-  const [items, dispatch] = useReducer(cartReducer, initialItems);
+export default function CartProvider({
+  children,
+  persist = false,
+}: CartProviderProps) {
+  const { items, isReady, dispatch } = useCartState(persist);
 
   const value: CartContextValue = {
     items,
-    // Derive these values from items so they always match the current cart.
+    isReady,
     itemCount: getCartItemCount(items),
     total: getCartTotal(items),
 

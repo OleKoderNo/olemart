@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="flex min-h-dvh flex-col">
-        <CartProvider>
+        <CartProvider persist>
           <Header />
           <div className="flex-1">{children}</div>
           <Footer />

@@ -6,6 +6,7 @@ import type { CartItem, CartProduct } from "@/types/cart";
 /** Shared cart data and actions available to consuming components. */
 export type CartContextValue = {
   items: CartItem[];
+  isReady: boolean;
   itemCount: number;
   total: number;
   addItem: (product: CartProduct) => void;

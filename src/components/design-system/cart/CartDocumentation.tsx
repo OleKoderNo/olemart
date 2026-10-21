@@ -21,6 +21,13 @@ export default function CartDocumentation() {
         <li>The minimum quantity is one. Use Remove to delete an item.</li>
         <li>Item totals and the cart summary update when quantities change.</li>
         <li>Removing the last item displays the empty-cart message.</li>
+        <li>
+          The shop cart is saved in browser storage and restored after a
+          refresh, when storage is available.
+        </li>
+        <li>
+          Documentation previews use temporary carts and reset on refresh.
+        </li>
       </ul>
 
       <CodeExample

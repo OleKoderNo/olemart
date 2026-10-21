@@ -4,9 +4,19 @@ import { useCart } from "@/hooks/useCart";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
 
-/** Connects cart items and totals to the shared cart state. */
+/** Displays loading feedback, cart items, or the empty-cart state. */
 export default function CartContents() {
-  const { items, itemCount, total, setQuantity, removeItem } = useCart();
+  const { items, isReady, itemCount, total, setQuantity, removeItem } =
+    useCart();
+
+  // Wait for restoration before deciding whether the cart is empty.
+  if (!isReady) {
+    return (
+      <p role="status" className="py-8 text-center text-slate-600">
+        Loading your cart…
+      </p>
+    );
+  }
 
   if (items.length === 0) {
     return (
