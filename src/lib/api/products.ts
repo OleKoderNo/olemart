@@ -28,14 +28,21 @@ export async function getProducts(
 }
 
 /**
- * Fetches a single product by its ID, including its reviews.
+ * Fetches a single product by its UUID, including its reviews.
  *
  * @param id - The unique ID of the product.
- * @returns The requested product, or null if the API returns 404.
- * @throws If the request fails, the API returns an unsuccessful status
- * other than 404, or the response cannot be parsed as JSON.
+ * @returns The product, or null if the ID is malformed or the API returns 404.
+ * @throws If the request fails, the API returns another unsuccessful status,
+ * or the response cannot be parsed as JSON.
  */
 export async function getProduct(id: string): Promise<Product | null> {
+  const uuidPattern =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+  if (!uuidPattern.test(id)) {
+    return null;
+  }
+
   const response = await fetch(`${PRODUCTS_URL}/${encodeURIComponent(id)}`, {
     cache: "no-store",
   });

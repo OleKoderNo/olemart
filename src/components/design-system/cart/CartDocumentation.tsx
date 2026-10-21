@@ -17,6 +17,10 @@ export default function CartDocumentation() {
         <li>Totals use the shared pricing rules and are calculated in øre.</li>
         <li>Client components access cart data through useCart().</li>
         <li>The cart currently resets when the browser refreshes.</li>
+        <li>Quantity controls increase or decrease the selected quantity.</li>
+        <li>The minimum quantity is one. Use Remove to delete an item.</li>
+        <li>Item totals and the cart summary update when quantities change.</li>
+        <li>Removing the last item displays the empty-cart message.</li>
       </ul>
 
       <CodeExample
