@@ -9,24 +9,22 @@ type CheckoutButtonProps = {
 };
 
 /**
- * Completes a simulated checkout and clears the current cart.
- * Documentation previews can provide onComplete to avoid navigation.
+ * Opens checkout without clearing the cart.
+ * The optional callback lets documentation intercept navigation.
  */
 export default function CheckoutButton({ onComplete }: CheckoutButtonProps) {
   const router = useRouter();
-  const { isReady, itemCount, clearCart } = useCart();
+  const { isReady, itemCount } = useCart();
 
   function handleCheckout() {
     if (!isReady || itemCount === 0) {
       return;
     }
 
-    clearCart();
-
     if (onComplete) {
       onComplete();
     } else {
-      router.push("/checkout/success");
+      router.push("/checkout");
     }
   }
 

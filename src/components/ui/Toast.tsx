@@ -40,7 +40,7 @@ export default function Toast({ toast, onDismiss }: ToastProps) {
         themes[toast.theme],
       )}
     >
-      <p className="min-w-0 flex-1 break-words text-sm font-medium">
+      <p className="min-w-0 flex-1 wrap-break-word text-sm font-medium">
         {toast.message}
       </p>
 

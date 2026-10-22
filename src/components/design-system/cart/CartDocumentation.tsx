@@ -3,7 +3,7 @@ import CodeExample from "@/components/design-system/CodeExample";
 import CartExamples from "./CartExamples";
 import MiniCartExamples from "./MiniCartExamples";
 
-/** Documents cart actions, shared state, and isolated previews. */
+/** Documents shared cart behaviour, checkout, and isolated previews. */
 export default function CartDocumentation() {
   return (
     <GuidelineSection
@@ -14,8 +14,11 @@ export default function CartDocumentation() {
       <ul className="list-disc space-y-2 pl-5 text-slate-700">
         <li>Add to cart adds one unit per click.</li>
         <li>Adding the same product increases its quantity.</li>
-        <li>The navbar count includes all units, not just unique products.</li>
-        <li>Totals use the shared pricing rules and are calculated in øre.</li>
+        <li>The cart count includes all units, not just unique products.</li>
+        <li>
+          Totals use the shared pricing rules and are calculated in øre to avoid
+          floating-point rounding errors.
+        </li>
         <li>Client components access cart data through useCart().</li>
         <li>Quantity controls increase or decrease the selected quantity.</li>
         <li>The minimum quantity is one. Use Remove to delete an item.</li>
@@ -28,28 +31,6 @@ export default function CartDocumentation() {
         <li>
           Documentation previews use temporary carts and reset on refresh.
         </li>
-        <li>Checkout clears the cart and opens a confirmation page.</li>
-        <li>
-          Checkout is a simulation; no payment or real order is processed.
-        </li>
-        <li>
-          The documentation checkout clears only its demo cart and displays
-          confirmation without navigating.
-        </li>
-        <li>
-          The header cart icon displays a badge with the total item quantity.
-        </li>
-        <li>
-          The mini cart supports quantity changes and removal. Its item totals,
-          summary, and header badge update together.
-        </li>
-        <li>
-          View cart opens the full cart page, where checkout is available.
-        </li>
-        <li>
-          Clicking outside, pressing Escape, or moving focus outside closes the
-          mini cart.
-        </li>
       </ul>
 
       <CodeExample
@@ -58,15 +39,69 @@ export default function CartDocumentation() {
 <AddToCartButton product={product} />`}
       />
 
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-slate-900">
+          Checkout behaviour
+        </h3>
+
+        <ul className="list-disc space-y-2 pl-5 text-slate-700">
+          <li>
+            Checkout opens the customer details form without clearing the cart.
+          </li>
+          <li>
+            Returning to the cart before completing checkout preserves its
+            items.
+          </li>
+          <li>
+            Full name, email, street address, postal code, and city are
+            required.
+          </li>
+          <li>
+            Postal codes must contain four digits for delivery within Norway.
+          </li>
+          <li>
+            Fields are validated when focus leaves them. Fields with errors are
+            checked again while typing.
+          </li>
+          <li>
+            Submitting invalid details moves focus to the first invalid field.
+          </li>
+          <li>A valid submission clears the cart and displays confirmation.</li>
+          <li>
+            Checkout is a simulation. Personal details are not submitted or
+            saved, and no payment or real order is processed.
+          </li>
+        </ul>
+      </div>
+
       <p className="text-sm text-slate-600">
-        This example has its own cart provider. Adding demo items does not
-        change the shop cart or navbar count.
+        Add a demo product, open checkout, and complete the form. This example
+        has its own cart provider and displays confirmation without navigating
+        or changing the shop cart.
       </p>
 
       <CartExamples />
 
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold">Mini cart</h3>
+        <h3 className="text-lg font-semibold text-slate-900">Mini cart</h3>
+
+        <ul className="list-disc space-y-2 pl-5 text-slate-700">
+          <li>
+            The header cart icon displays a badge with the total item quantity.
+          </li>
+          <li>
+            Quantity changes and removal update item totals, the summary, and
+            the header badge together.
+          </li>
+          <li>Decreasing a quantity to one keeps the mini cart open.</li>
+          <li>
+            View cart opens the full cart page, where checkout is available.
+          </li>
+          <li>
+            Clicking outside, pressing Escape, or moving focus to an element
+            outside closes the mini cart.
+          </li>
+        </ul>
 
         <p className="text-sm text-slate-600">
           Add a demo item, then open the cart icon. This preview has its own
