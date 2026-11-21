@@ -26,7 +26,7 @@ export default function QuantityControl({
         onClick={() => onQuantityChange(quantity - 1)}
       />
 
-      <span className="min-w-8 text-center font-medium tabular-nums">
+      <span className="min-w-8 text-center font-medium tabular-nums text-foreground">
         <span className="sr-only">Quantity: </span>
         {quantity}
       </span>
