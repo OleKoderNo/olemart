@@ -115,7 +115,7 @@ export default function ContactForm() {
       }}
       className="space-y-5"
     >
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         All fields are required. This demo validates your message but does not
         send it.
       </p>
@@ -123,14 +123,14 @@ export default function ContactForm() {
       <ContactFields idPrefix={id} errors={errors} />
 
       {Object.keys(errors).length > 0 && (
-        <p className="text-sm text-red-700">
+        <p className="text-sm text-red-700 dark:text-red-400">
           Please correct the highlighted fields before submitting.
         </p>
       )}
 
       <Button type="submit" text="Submit message" />
 
-      <p role="status" className="text-sm text-slate-700">
+      <p role="status" className="text-sm text-muted-foreground">
         {isSubmitted &&
           "Your message passed validation. No message was sent because this is a demo."}
       </p>
