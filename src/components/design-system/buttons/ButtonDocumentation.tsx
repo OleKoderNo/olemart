@@ -2,8 +2,10 @@ import GuidelineSection from "@/components/design-system/GuidelineSection";
 import ButtonExamples from "./ButtonExamples";
 import ButtonGuidelines from "./ButtonGuidelines";
 import ButtonProperties from "./ButtonProperties";
+import IconButtonGuidelines from "./IconButtonGuidelines";
+import IconButtonExamples from "./IconButtonExamples";
 
-/** Assembles the button guidelines, property reference, and live examples. */
+/** Assembles guidelines, properties, and live examples for text and icon buttons. */
 export default function ButtonDocumentation() {
   return (
     <GuidelineSection
@@ -14,6 +16,11 @@ export default function ButtonDocumentation() {
       <ButtonGuidelines />
       <ButtonProperties />
       <ButtonExamples />
+
+      <div className="space-y-6 border-t border-border pt-6">
+        <IconButtonGuidelines />
+        <IconButtonExamples />
+      </div>
     </GuidelineSection>
   );
 }
