@@ -1,7 +1,7 @@
 import CodeExample from "@/components/design-system/CodeExample";
 import GuidelineSection from "@/components/design-system/GuidelineSection";
 
-/** Documents footer placement, responsive layout, and usage. */
+/** Documents footer placement, responsive layout, theme support, and usage. */
 export default function FooterDocumentation() {
   return (
     <GuidelineSection
@@ -9,13 +9,16 @@ export default function FooterDocumentation() {
       title="Footer"
       description="Shared site information and supporting navigation."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Render Footer once, after the page content in the root layout.</li>
         <li>Use Container to align its content with the header.</li>
         <li>
           Content stacks on mobile and sits side by side on wider screens.
         </li>
         <li>The footer follows page content and never covers it.</li>
+        <li>
+          Background, text, links, and focus outlines follow the selected theme.
+        </li>
       </ul>
 
       <CodeExample
@@ -24,7 +27,7 @@ export default function FooterDocumentation() {
 <Footer />`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         The live example is at the bottom of this page.
       </p>
     </GuidelineSection>
