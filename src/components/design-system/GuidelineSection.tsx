@@ -8,7 +8,7 @@ type GuidelineSectionProps = {
 };
 
 /**
- * Wraps component documentation in a consistently styled section.
+ * Wraps component documentation in a consistent, theme-aware section.
  * Uses the supplied ID for anchor navigation and heading association.
  */
 export default function GuidelineSection({
@@ -21,17 +21,14 @@ export default function GuidelineSection({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="scroll-mt-8 space-y-6 rounded-xl border border-slate-200 bg-white p-6"
+      className="scroll-mt-8 space-y-6 rounded-xl border border-border bg-surface p-6 text-foreground"
     >
       <header>
-        <h2
-          id={`${id}-heading`}
-          className="text-2xl font-semibold text-slate-900"
-        >
+        <h2 id={`${id}-heading`} className="text-2xl font-semibold">
           {title}
         </h2>
 
-        <p className="mt-2 text-slate-600">{description}</p>
+        <p className="mt-2 text-muted-foreground">{description}</p>
       </header>
 
       {children}
