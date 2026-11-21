@@ -10,7 +10,7 @@ export default function ProductCardDocumentation() {
       title="Product card"
       description="A reusable product summary for catalogue grids."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Pass a complete Product object through the product prop.</li>
         <li>The entire card links to its product detail page.</li>
         <li>Images retain their proportions without cropping.</li>
@@ -26,9 +26,9 @@ export default function ProductCardDocumentation() {
 <ProductCard product={product} />`}
       />
 
-      <p className="text-sm text-slate-600">
-        These examples use demo data. The discounted example is illustrative.
-        Detail links will work once the product route is implemented.
+      <p className="text-sm text-muted-foreground">
+        These examples demonstrate discounted and full-price states using demo
+        data. Selecting a card opens the product route using its ID.
       </p>
 
       <ProductCardExamples />

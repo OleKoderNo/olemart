@@ -3,26 +3,32 @@ import { exampleProduct } from "./exampleProduct";
 
 /**
  * Demonstrates discounted and regular pricing with the same demo product.
- * The regular-price example sets both prices equal to represent no discount.
+ * Separate heading and card rows prevent full-height cards overflowing.
  */
 export default function ProductCardExamples() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <div className="space-y-3">
-        <h3 className="text-lg font-semibold">With discount</h3>
+      <div className="grid min-w-0 grid-rows-[auto_1fr] gap-3">
+        <h3 className="text-lg font-semibold text-foreground">With discount</h3>
 
-        <ProductCard product={exampleProduct} />
+        <div className="min-w-0">
+          <ProductCard product={exampleProduct} />
+        </div>
       </div>
 
-      <div className="space-y-3">
-        <h3 className="text-lg font-semibold">Without discount</h3>
+      <div className="grid min-w-0 grid-rows-[auto_1fr] gap-3">
+        <h3 className="text-lg font-semibold text-foreground">
+          Without discount
+        </h3>
 
-        <ProductCard
-          product={{
-            ...exampleProduct,
-            discountedPrice: exampleProduct.price,
-          }}
-        />
+        <div className="min-w-0">
+          <ProductCard
+            product={{
+              ...exampleProduct,
+              discountedPrice: exampleProduct.price,
+            }}
+          />
+        </div>
       </div>
     </div>
   );
