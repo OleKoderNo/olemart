@@ -10,16 +10,17 @@ type ProductCardProps = {
 };
 
 /**
- * Displays a product summary with its image, pricing, and rating.
+ * Displays a theme-aware product summary with its image, pricing, and rating.
  * Links to the product detail page using the product ID.
  */
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <article className="h-full rounded-xl border border-slate-200 bg-white">
+    <article className="h-full rounded-xl border border-border bg-surface text-foreground">
       <Link
         href={`/product/${product.id}`}
-        className="group flex h-full flex-col rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+        className="group flex h-full flex-col rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
       >
+        {/* Keeps product images on a consistent light backdrop in both themes. */}
         <div className="relative aspect-square overflow-hidden rounded-t-xl bg-slate-100">
           <Image
             src={product.image.url}
@@ -37,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="flex flex-1 flex-col gap-3 p-4">
-          <h3 className="text-lg font-semibold text-slate-900 group-hover:underline">
+          <h3 className="text-lg font-semibold text-foreground group-hover:underline">
             {product.title}
           </h3>
 
