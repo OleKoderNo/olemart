@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
+import FormField from "./FormField";
 
 type SelectProps = Omit<ComponentPropsWithoutRef<"select">, "children"> & {
   id: string;
@@ -7,7 +8,7 @@ type SelectProps = Omit<ComponentPropsWithoutRef<"select">, "children"> & {
   options: ReadonlyArray<{ value: string; label: string }>;
 };
 
-/** Displays a theme-aware labelled select with native keyboard behaviour. */
+/** Renders a themed select inside the shared field wrapper. */
 export default function Select({
   id,
   label,
@@ -16,11 +17,7 @@ export default function Select({
   ...props
 }: SelectProps) {
   return (
-    <div className="space-y-2">
-      <label htmlFor={id} className="block text-sm font-medium text-foreground">
-        {label}
-      </label>
-
+    <FormField id={id} label={label}>
       <select
         {...props}
         id={id}
@@ -39,6 +36,6 @@ export default function Select({
           </option>
         ))}
       </select>
-    </div>
+    </FormField>
   );
 }
