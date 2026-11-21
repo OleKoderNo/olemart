@@ -5,7 +5,7 @@ type DesignSystemNavProps = {
   }[];
 };
 
-/** Renders anchor links to the registered design-system sections. */
+/** Renders theme-aware anchor links to registered design-system sections. */
 export default function DesignSystemNav({ sections }: DesignSystemNavProps) {
   return (
     <nav aria-label="Design system">
@@ -14,7 +14,7 @@ export default function DesignSystemNav({ sections }: DesignSystemNavProps) {
           <li key={id}>
             <a
               href={`#${id}`}
-              className="inline-flex min-h-11 items-center rounded-lg border border-slate-300 bg-white px-4 font-medium text-slate-900 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="inline-flex min-h-11 items-center rounded-lg border border-input-border bg-surface px-4 font-medium text-foreground hover:bg-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
             >
               {title}
             </a>
