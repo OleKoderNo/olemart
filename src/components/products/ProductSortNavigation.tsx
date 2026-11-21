@@ -35,7 +35,7 @@ export default function ProductSortNavigation({
         disabled={isPending}
       />
 
-      <p role="status" className="mt-2 min-h-5 text-sm text-slate-600">
+      <p role="status" className="mt-2 min-h-5 text-sm text-muted-foreground">
         {isPending ? "Updating products…" : ""}
       </p>
     </div>
