@@ -24,7 +24,7 @@ export default function ProductSearchExamples() {
         onProductSelect={setSelectedProduct}
       />
 
-      <p role="status" className="min-h-5 text-sm text-slate-600">
+      <p role="status" className="min-h-5 text-sm text-muted-foreground">
         {selectedProduct
           ? `Selected: ${selectedProduct.title}`
           : "Select a result to preview its behaviour."}
