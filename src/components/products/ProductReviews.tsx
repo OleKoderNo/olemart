@@ -4,10 +4,10 @@ type ProductReviewsProps = {
   reviews: ProductReview[];
 };
 
-/** Displays customer reviews or an empty-state message. */
+/** Displays theme-aware customer reviews or an empty-state message. */
 export default function ProductReviews({ reviews }: ProductReviewsProps) {
   if (reviews.length === 0) {
-    return <p className="text-slate-600">No reviews yet.</p>;
+    return <p className="text-muted-foreground">No reviews yet.</p>;
   }
 
   return (
@@ -15,18 +15,18 @@ export default function ProductReviews({ reviews }: ProductReviewsProps) {
       {reviews.map((review) => (
         <li
           key={review.id}
-          className="space-y-3 rounded-lg border border-slate-200 bg-white p-4"
+          className="space-y-3 rounded-lg border border-border bg-surface p-4"
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="font-semibold text-slate-900">{review.username}</p>
+            <p className="font-semibold text-foreground">{review.username}</p>
 
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-muted-foreground">
               <span className="sr-only">Rated </span>
               {review.rating} out of 5
             </p>
           </div>
 
-          <p className="whitespace-pre-line wrap-break-word text-slate-700">
+          <p className="whitespace-pre-line wrap-break-word text-muted-foreground">
             {review.description}
           </p>
         </li>
