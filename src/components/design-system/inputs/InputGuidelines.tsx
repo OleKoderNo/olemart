@@ -4,9 +4,9 @@ import CodeExample from "@/components/design-system/CodeExample";
 export default function InputGuidelines() {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold">Usage</h3>
+      <h3 className="text-lg font-semibold text-foreground">Usage</h3>
 
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Give every input a unique id and a visible label.</li>
         <li>Use helpText for instructions before an error occurs.</li>
         <li>Use error to explain what needs correcting.</li>
