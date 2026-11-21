@@ -7,7 +7,7 @@ type ProductPriceProps = Pick<Product, "price" | "discountedPrice"> & {
 };
 
 /**
- * Displays the selling price with two decimal places.
+ * Displays theme-aware prices with two decimal places and NOK currency.
  * Shows the original price struck through only when a discount applies.
  */
 export default function ProductPrice({
@@ -23,13 +23,13 @@ export default function ProductPrice({
   return (
     <div className={clsx("flex flex-wrap items-baseline gap-2", className)}>
       {hasDiscount && (
-        <span className="text-sm text-slate-600">
+        <span className="text-sm text-muted-foreground">
           <span className="sr-only">Original price: </span>
           <s>{price.toFixed(2)} NOK</s>
         </span>
       )}
 
-      <span className="font-semibold text-slate-900">
+      <span className="font-semibold text-foreground">
         <span className="sr-only">Current price: </span>
         {displayPrice.toFixed(2)} NOK
       </span>
