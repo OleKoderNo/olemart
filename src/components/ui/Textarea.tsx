@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
+import FormField from "./FormField";
 
 type TextareaProps = Omit<ComponentPropsWithoutRef<"textarea">, "children"> & {
   id: string;
@@ -8,7 +9,11 @@ type TextareaProps = Omit<ComponentPropsWithoutRef<"textarea">, "children"> & {
   error?: string;
 };
 
-/** Displays a theme-aware multiline field with accessible help and error text. */
+/**
+ * Renders a themed multiline control inside the shared field wrapper.
+ * Preserves supplied accessibility descriptions and connects field feedback.
+ * Validation is handled by the parent form.
+ */
 export default function Textarea({
   id,
   label,
@@ -20,25 +25,18 @@ export default function Textarea({
   "aria-invalid": invalid,
   ...props
 }: TextareaProps) {
-  const descriptionIds = [
-    describedBy,
-    helpText ? `${id}-help` : undefined,
-    error ? `${id}-error` : undefined,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const descriptionIds =
+    [describedBy, helpText && `${id}-help`, error && `${id}-error`]
+      .filter(Boolean)
+      .join(" ") || undefined;
 
   return (
-    <div className="space-y-2">
-      <label htmlFor={id} className="block text-sm font-medium text-foreground">
-        {label}
-      </label>
-
+    <FormField id={id} label={label} helpText={helpText} error={error}>
       <textarea
         {...props}
         id={id}
         rows={rows}
-        aria-describedby={descriptionIds || undefined}
+        aria-describedby={descriptionIds}
         aria-invalid={error ? true : invalid}
         className={clsx(
           "block min-h-32 w-full resize-y rounded-lg border",
@@ -52,21 +50,6 @@ export default function Textarea({
           className,
         )}
       />
-
-      {helpText && (
-        <p id={`${id}-help`} className="text-sm text-muted-foreground">
-          {helpText}
-        </p>
-      )}
-
-      {error && (
-        <p
-          id={`${id}-error`}
-          className="text-sm text-red-700 dark:text-red-400"
-        >
-          {error}
-        </p>
-      )}
-    </div>
+    </FormField>
   );
 }
