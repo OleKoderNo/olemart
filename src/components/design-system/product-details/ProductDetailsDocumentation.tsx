@@ -10,7 +10,7 @@ export default function ProductDetailsDocumentation() {
       title="Product details"
       description="A responsive view of an individual product and its reviews."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Pass a complete Product object using the product prop.</li>
         <li>Fetch the product outside this presentation component.</li>
         <li>Prices and discounts use the shared pricing components.</li>
