@@ -10,7 +10,7 @@ export default function TextareaDocumentation() {
       title="Textarea"
       description="A reusable multiline field with an associated label and optional feedback."
     >
-      <p className="text-slate-700">
+      <p className="text-muted-foreground">
         Provide a unique id and a label. Use helpText for instructions and error
         for validation feedback. Validation belongs to the form; this component
         displays the supplied message.
