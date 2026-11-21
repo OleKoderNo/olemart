@@ -11,7 +11,7 @@ type ProductGridProps = {
  */
 export default function ProductGrid({ products }: ProductGridProps) {
   if (products.length === 0) {
-    return <p className="text-slate-600">No products found.</p>;
+    return <p className="text-muted-foreground">No products found.</p>;
   }
 
   return (
