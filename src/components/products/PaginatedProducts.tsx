@@ -56,7 +56,7 @@ export default function PaginatedProducts({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <h2
           id="products-heading"
-          className="text-2xl font-semibold text-slate-900"
+          className="text-2xl font-semibold text-foreground"
         >
           Our products
         </h2>
