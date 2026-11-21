@@ -22,7 +22,7 @@ function MiniCartPreview() {
         />
       </div>
 
-      <p role="status" className="text-sm text-slate-600">
+      <p role="status" className="text-sm text-muted-foreground">
         {message}
       </p>
     </div>
