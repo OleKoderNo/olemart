@@ -4,9 +4,9 @@ import CodeExample from "@/components/design-system/CodeExample";
 export default function ProductPriceGuidelines() {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold">Discount rules</h3>
+      <h3 className="text-lg font-semibold text-foreground">Discount rules</h3>
 
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>
           Every product has a discountedPrice field. Its presence alone does not
           indicate a sale.
@@ -40,7 +40,7 @@ import DiscountBadge from "@/components/products/DiscountBadge";
 />`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         Both components use getProductPricing for consistent behaviour. The
         badge automatically renders nothing when no discount applies. Prices
         display two decimal places followed by NOK.
