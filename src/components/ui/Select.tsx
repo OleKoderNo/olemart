@@ -7,7 +7,7 @@ type SelectProps = Omit<ComponentPropsWithoutRef<"select">, "children"> & {
   options: ReadonlyArray<{ value: string; label: string }>;
 };
 
-/** Displays a labelled select with native keyboard behaviour. */
+/** Displays a theme-aware labelled select with native keyboard behaviour. */
 export default function Select({
   id,
   label,
@@ -17,7 +17,7 @@ export default function Select({
 }: SelectProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={id} className="block text-sm font-medium text-slate-900">
+      <label htmlFor={id} className="block text-sm font-medium text-foreground">
         {label}
       </label>
 
@@ -26,9 +26,9 @@ export default function Select({
         id={id}
         className={clsx(
           "min-h-11 w-full cursor-pointer rounded-lg border",
-          "border-slate-300 bg-white px-3 py-2 text-sm text-slate-900",
+          "border-input-border bg-surface px-3 py-2 text-sm text-foreground",
           "focus-visible:outline-2 focus-visible:outline-offset-2",
-          "focus-visible:outline-slate-900",
+          "focus-visible:outline-focus",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className,
         )}
