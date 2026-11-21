@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import FormField from "./FormField";
+import { formControlStyles } from "./formControlStyles";
 
 type InputProps = ComponentPropsWithoutRef<"input"> & {
   id: string;
@@ -36,16 +37,10 @@ export default function Input({
         id={id}
         aria-describedby={descriptionIds}
         aria-invalid={error ? true : invalid}
-        className={clsx(
-          "min-h-11 w-full rounded-lg border bg-surface px-3 py-2 text-foreground",
-          "placeholder:text-muted-foreground",
-          "focus-visible:outline-2 focus-visible:outline-offset-2",
-          "disabled:cursor-not-allowed disabled:bg-surface-muted",
-          error
-            ? "border-red-700 focus-visible:outline-red-700 dark:border-red-400 dark:focus-visible:outline-red-400"
-            : "border-input-border focus-visible:outline-focus",
-          className,
-        )}
+        className={formControlStyles({
+          hasError: Boolean(error),
+          className: clsx("min-h-11 disabled:bg-surface-muted", className),
+        })}
       />
     </FormField>
   );
