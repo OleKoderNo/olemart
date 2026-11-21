@@ -10,7 +10,7 @@ export default function PaginationDocumentation() {
       title="Pagination"
       description="Navigate between result pages using links or local state."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Pass currentPage and pageCount using the meta prop.</li>
         <li>The current page is highlighted and marked for screen readers.</li>
         <li>Previous is disabled on the first page.</li>
@@ -34,7 +34,7 @@ export default function PaginationDocumentation() {
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Shop page sizes</h3>
 
-        <ul className="list-disc space-y-2 pl-5 text-slate-700">
+        <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
           <li>Below 640px: six products per page in one column.</li>
           <li>From 640px to 1023px: eight products per page in two columns.</li>
           <li>From 1024px: nine products per page in three columns.</li>
@@ -66,7 +66,7 @@ export default function PaginationDocumentation() {
 />`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         Each preview below uses three pages and works independently. Click the
         controls to change its active page without navigating or scrolling. Test
         responsive product counts on the shop page.
