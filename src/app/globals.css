@@ -1,9 +1,9 @@
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
 
 /* Makes dark: utilities follow the class set by ThemeProvider. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Default light-theme colours. */
+/* Default light-theme colours and colours shared by both themes. */
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
@@ -24,6 +24,40 @@
   --danger: #b91c1c;
   --danger-hover: #991b1b;
   --danger-foreground: #ffffff;
+
+  /* Validation text, borders, and focus outlines. */
+  --error: var(--color-red-700);
+
+  /* Product images keep their existing light backgrounds in both themes. */
+  --image-background: var(--color-white);
+  --image-background-subtle: var(--color-slate-50);
+  --image-background-muted: var(--color-slate-100);
+
+  /* Code examples remain dark in both themes. */
+  --code-background: var(--color-slate-900);
+  --code-foreground: var(--color-slate-100);
+
+  /* Product discounts and rating stars. */
+  --discount-background: var(--color-red-700);
+  --discount-foreground: var(--color-white);
+  --rating: var(--color-amber-600);
+
+  /* Success notifications. */
+  --success-background: var(--color-green-50);
+  --success-foreground: var(--color-green-950);
+  --success-border: var(--color-green-300);
+
+  /* Error notifications, separate from field validation colours. */
+  --error-background: var(--color-red-50);
+  --error-foreground: var(--color-red-950);
+  --error-border: var(--color-red-300);
+
+  /* Information notifications. */
+  --info-background: var(--color-blue-50);
+  --info-foreground: var(--color-blue-950);
+  --info-border: var(--color-blue-300);
+
+  --notification-dismiss-hover: rgb(0 0 0 / 5%);
 }
 
 /* Overrides the shared colours when the dark theme is active. */
@@ -43,6 +77,24 @@
   --primary-foreground: #0f172a;
 
   --focus: #93c5fd;
+
+  /* Lighter colours keep validation and ratings readable on dark surfaces. */
+  --error: var(--color-red-400);
+  --rating: var(--color-amber-400);
+
+  --success-background: var(--color-green-950);
+  --success-foreground: var(--color-green-100);
+  --success-border: var(--color-green-700);
+
+  --error-background: var(--color-red-950);
+  --error-foreground: var(--color-red-100);
+  --error-border: var(--color-red-700);
+
+  --info-background: var(--color-blue-950);
+  --info-foreground: var(--color-blue-100);
+  --info-border: var(--color-blue-700);
+
+  --notification-dismiss-hover: rgb(255 255 255 / 10%);
 }
 
 /* Creates Tailwind utilities backed by the active theme colours. */
@@ -66,6 +118,33 @@
   --color-danger: var(--danger);
   --color-danger-hover: var(--danger-hover);
   --color-danger-foreground: var(--danger-foreground);
+
+  --color-error: var(--error);
+
+  --color-image-background: var(--image-background);
+  --color-image-background-subtle: var(--image-background-subtle);
+  --color-image-background-muted: var(--image-background-muted);
+
+  --color-code-background: var(--code-background);
+  --color-code-foreground: var(--code-foreground);
+
+  --color-discount-background: var(--discount-background);
+  --color-discount-foreground: var(--discount-foreground);
+  --color-rating: var(--rating);
+
+  --color-success-background: var(--success-background);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-border: var(--success-border);
+
+  --color-error-background: var(--error-background);
+  --color-error-foreground: var(--error-foreground);
+  --color-error-border: var(--error-border);
+
+  --color-info-background: var(--info-background);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-border: var(--info-border);
+
+  --color-notification-dismiss-hover: var(--notification-dismiss-hover);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

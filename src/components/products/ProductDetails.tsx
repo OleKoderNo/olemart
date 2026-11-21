@@ -26,7 +26,7 @@ export default function ProductDetails({
     <article className="space-y-10">
       <div className="grid gap-8 md:grid-cols-2">
         {/* Keeps product images on a consistent light backdrop in both themes. */}
-        <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
+        <div className="relative aspect-square overflow-hidden rounded-xl bg-image-background">
           <Image
             src={product.image.url}
             alt={product.image.alt || product.title}

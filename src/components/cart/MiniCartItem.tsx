@@ -21,7 +21,7 @@ export default function MiniCartItem({ item }: MiniCartItemProps) {
     <div className="space-y-3">
       <div className="flex items-start gap-3">
         {/* Keeps product images on a consistent light backdrop in both themes. */}
-        <div className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-slate-50">
+        <div className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-image-background-subtle">
           <Image
             src={product.image.url}
             alt={product.image.alt || product.title}

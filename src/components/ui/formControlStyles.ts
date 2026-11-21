@@ -20,7 +20,7 @@ export function formControlStyles({
     "focus-visible:outline-2 focus-visible:outline-offset-2",
     "disabled:cursor-not-allowed",
     hasError
-      ? "border-red-700 focus-visible:outline-red-700 dark:border-red-400 dark:focus-visible:outline-red-400"
+      ? "border-error focus-visible:outline-error"
       : "border-input-border focus-visible:outline-focus",
     className,
   );

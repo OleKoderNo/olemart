@@ -123,7 +123,7 @@ export default function ContactForm() {
       <ContactFields idPrefix={id} errors={errors} />
 
       {Object.keys(errors).length > 0 && (
-        <p className="text-sm text-red-700 dark:text-red-400">
+        <p className="text-sm text-error">
           Please correct the highlighted fields before submitting.
         </p>
       )}

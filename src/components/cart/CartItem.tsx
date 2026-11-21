@@ -23,7 +23,7 @@ export default function CartItem({
     <article className="rounded-xl border border-border bg-surface p-4 text-foreground">
       <div className="flex items-start gap-4">
         {/* Keeps product images on a consistent light backdrop in both themes. */}
-        <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-slate-50 sm:size-28">
+        <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-image-background-subtle sm:size-28">
           <Image
             src={product.image.url}
             alt={product.image.alt || product.title}

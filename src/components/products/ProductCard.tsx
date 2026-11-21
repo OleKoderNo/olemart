@@ -21,7 +21,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         className="group flex h-full flex-col rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
       >
         {/* Keeps product images on a consistent light backdrop in both themes. */}
-        <div className="relative aspect-square overflow-hidden rounded-t-xl bg-slate-100">
+        <div className="relative aspect-square overflow-hidden rounded-t-xl bg-image-background-muted">
           <Image
             src={product.image.url}
             alt={product.image.alt || product.title}

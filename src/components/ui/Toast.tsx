@@ -14,10 +14,9 @@ type ToastProps = {
 /** Provides readable status colours in both light and dark mode. */
 const themes: Record<ToastTheme, string> = {
   success:
-    "border-green-300 bg-green-50 text-green-950 dark:border-green-700 dark:bg-green-950 dark:text-green-100",
-  error:
-    "border-red-300 bg-red-50 text-red-950 dark:border-red-700 dark:bg-red-950 dark:text-red-100",
-  info: "border-blue-300 bg-blue-50 text-blue-950 dark:border-blue-700 dark:bg-blue-950 dark:text-blue-100",
+    "border-success-border bg-success-background text-success-foreground",
+  error: "border-error-border bg-error-background text-error-foreground",
+  info: "border-info-border bg-info-background text-info-foreground",
 };
 
 /** Displays a theme-aware, dismissible notification without moving focus. */
@@ -52,7 +51,7 @@ export default function Toast({ toast, onDismiss }: ToastProps) {
         aria-label="Dismiss notification"
         onClick={onDismiss}
         className="inline-flex size-8 shrink-0 cursor-pointer items-center
-          justify-center rounded-md hover:bg-black/5 dark:hover:bg-white/10
+          justify-center rounded-md hover:bg-notification-dismiss-hover
           focus-visible:outline-2 focus-visible:outline-offset-2
           focus-visible:outline-current"
       >

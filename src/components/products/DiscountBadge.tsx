@@ -25,8 +25,8 @@ export default function DiscountBadge({
   return (
     <span
       className={clsx(
-        "inline-flex rounded-full bg-red-700 px-3 py-1",
-        "text-xs font-semibold text-white",
+        "inline-flex rounded-full bg-discount-background px-3 py-1",
+        "text-xs font-semibold text-discount-foreground",
         className,
       )}
     >

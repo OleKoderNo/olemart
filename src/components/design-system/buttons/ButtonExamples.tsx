@@ -32,7 +32,7 @@ export default function ButtonExamples() {
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Interactive example</h3>
 
-        <p className="text-slate-600">
+        <p className="text-muted-foreground">
           Activate the button with a mouse, Enter, or Space.
         </p>
 

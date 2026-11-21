@@ -19,10 +19,7 @@ export default function ProductRating({
 
   return (
     <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-      <FaStar
-        aria-hidden="true"
-        className="shrink-0 text-amber-600 dark:text-amber-400"
-      />
+      <FaStar aria-hidden="true" className="shrink-0 	text-rating" />
 
       <span>
         <span className="sr-only">Rated </span>
