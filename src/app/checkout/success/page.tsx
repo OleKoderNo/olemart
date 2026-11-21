@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   },
 };
 
-/** Displays checkout confirmation and a link back to the shop. */
+/** Displays a theme-aware confirmation page and a link back to the shop. */
 export default function CheckoutSuccessPage() {
   return (
-    <main className="bg-slate-50 py-12 text-slate-900">
+    <main className="bg-background py-12 text-foreground">
       <Container className="space-y-6">
         <CheckoutConfirmation />
 
@@ -23,7 +23,7 @@ export default function CheckoutSuccessPage() {
           className="inline-flex min-h-11 items-center rounded px-2
             font-medium underline underline-offset-4
             focus-visible:outline-2 focus-visible:outline-offset-2
-            focus-visible:outline-slate-900"
+            focus-visible:outline-focus"
         >
           Continue shopping
         </Link>
