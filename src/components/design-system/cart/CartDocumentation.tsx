@@ -11,7 +11,7 @@ export default function CartDocumentation() {
       title="Shopping cart"
       description="Shared cart state with reusable controls and calculated totals."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Add to cart adds one unit per click.</li>
         <li>Adding the same product increases its quantity.</li>
         <li>The cart count includes all units, not just unique products.</li>
@@ -40,11 +40,11 @@ export default function CartDocumentation() {
       />
 
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-slate-900">
+        <h3 className="text-lg font-semibold text-foreground">
           Checkout behaviour
         </h3>
 
-        <ul className="list-disc space-y-2 pl-5 text-slate-700">
+        <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
           <li>
             Checkout opens the customer details form without clearing the cart.
           </li>
@@ -74,7 +74,7 @@ export default function CartDocumentation() {
         </ul>
       </div>
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         Add a demo product, open checkout, and complete the form. This example
         has its own cart provider and displays confirmation without navigating
         or changing the shop cart.
@@ -83,9 +83,9 @@ export default function CartDocumentation() {
       <CartExamples />
 
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-slate-900">Mini cart</h3>
+        <h3 className="text-lg font-semibold text-foreground">Mini cart</h3>
 
-        <ul className="list-disc space-y-2 pl-5 text-slate-700">
+        <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
           <li>
             The header cart icon displays a badge with the total item quantity.
           </li>
@@ -103,7 +103,7 @@ export default function CartDocumentation() {
           </li>
         </ul>
 
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-muted-foreground">
           Add a demo item, then open the cart icon. This preview has its own
           temporary cart, and View cart stays on this documentation page.
         </p>
