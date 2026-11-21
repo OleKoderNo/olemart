@@ -22,7 +22,7 @@ export default function ProductDetailsExamples() {
       <div className="space-y-4">
         <h3 className="text-lg font-semibold">Populated reviews example</h3>
 
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-muted-foreground">
           This fictional review is for documentation only.
         </p>
 
