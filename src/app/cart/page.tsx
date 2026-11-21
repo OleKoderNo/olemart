@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   description: "Review your items and update your shopping cart.",
 };
 
-/** Displays the shopping cart and a link back to the shop. */
+/** Displays the theme-aware shopping cart page and a link back to the shop. */
 export default function CartPage() {
   return (
-    <main className="bg-slate-50 py-10 text-slate-900">
+    <main className="bg-background py-10 text-foreground">
       <Container className="space-y-6">
         <header className="space-y-3">
           <h1 className="text-3xl font-bold">Shopping cart</h1>
@@ -22,7 +22,7 @@ export default function CartPage() {
             className="inline-flex min-h-11 items-center rounded px-2
               font-medium underline underline-offset-4
               focus-visible:outline-2 focus-visible:outline-offset-2
-              focus-visible:outline-slate-900"
+              focus-visible:outline-focus"
           >
             Continue shopping
           </Link>
