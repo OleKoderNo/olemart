@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import FormField from "./FormField";
+import { formControlStyles } from "./formControlStyles";
 
 type TextareaProps = Omit<ComponentPropsWithoutRef<"textarea">, "children"> & {
   id: string;
@@ -38,17 +39,14 @@ export default function Textarea({
         rows={rows}
         aria-describedby={descriptionIds}
         aria-invalid={error ? true : invalid}
-        className={clsx(
-          "block min-h-32 w-full resize-y rounded-lg border",
-          "bg-surface px-3 py-2 text-foreground",
-          "placeholder:text-muted-foreground",
-          "focus-visible:outline-2 focus-visible:outline-offset-2",
-          "disabled:cursor-not-allowed disabled:bg-surface-muted disabled:opacity-50",
-          error
-            ? "border-red-700 focus-visible:outline-red-700 dark:border-red-400 dark:focus-visible:outline-red-400"
-            : "border-input-border focus-visible:outline-focus",
-          className,
-        )}
+        className={formControlStyles({
+          hasError: Boolean(error),
+          className: clsx(
+            "block min-h-32 resize-y",
+            "disabled:bg-surface-muted disabled:opacity-50",
+            className,
+          ),
+        })}
       />
     </FormField>
   );
