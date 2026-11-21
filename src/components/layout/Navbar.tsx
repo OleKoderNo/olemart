@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
+import IconButton from "@/components/ui/IconButton";
 import MobileMenu from "./MobileMenu";
 import NavLinks from "./NavLinks";
 
@@ -59,21 +60,20 @@ export default function Navbar() {
     >
       <NavLinks pathname={pathname} className="hidden items-center md:flex" />
 
-      <button
+      <IconButton
         ref={triggerRef}
-        type="button"
-        aria-label={isOpen ? "Close menu" : "Open menu"}
+        label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
         onClick={() => setIsOpen((open) => !open)}
-        className="inline-flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border border-input-border bg-surface text-foreground hover:bg-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus md:hidden"
+        className="md:hidden"
       >
         {isOpen ? (
           <IoCloseOutline aria-hidden="true" className="size-6" />
         ) : (
           <IoMenuOutline aria-hidden="true" className="size-6" />
         )}
-      </button>
+      </IconButton>
 
       <MobileMenu isOpen={isOpen} pathname={pathname} onClose={closeMenu} />
     </nav>

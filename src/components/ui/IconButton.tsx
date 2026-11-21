@@ -1,8 +1,8 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 import clsx from "clsx";
 
 type IconButtonProps = Omit<
-  ComponentPropsWithoutRef<"button">,
+  ComponentPropsWithRef<"button">,
   "children" | "aria-label" | "aria-labelledby"
 > & {
   label: ReactNode;
@@ -11,7 +11,7 @@ type IconButtonProps = Omit<
 
 /**
  * Renders a compact icon button with a required accessible label.
- * Accepts JSX labels so theme-dependent text can remain hydration-safe.
+ * Accepts a native button ref so callers can restore keyboard focus.
  * Icons should use aria-hidden because the label describes the action.
  */
 export default function IconButton({
