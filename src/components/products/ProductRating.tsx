@@ -6,7 +6,7 @@ type ProductRatingProps = {
 };
 
 /**
- * Displays a product rating out of five and its review count.
+ * Displays a theme-aware rating out of five and its review count.
  * Shows an unrated message when no reviews exist.
  */
 export default function ProductRating({
@@ -14,12 +14,15 @@ export default function ProductRating({
   reviewCount,
 }: ProductRatingProps) {
   if (reviewCount === 0) {
-    return <p className="text-sm text-slate-600">No reviews yet</p>;
+    return <p className="text-sm text-muted-foreground">No reviews yet</p>;
   }
 
   return (
-    <p className="flex flex-wrap items-center gap-2 text-sm text-slate-700">
-      <FaStar aria-hidden="true" className="shrink-0 text-amber-600" />
+    <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+      <FaStar
+        aria-hidden="true"
+        className="shrink-0 text-amber-600 dark:text-amber-400"
+      />
 
       <span>
         <span className="sr-only">Rated </span>
