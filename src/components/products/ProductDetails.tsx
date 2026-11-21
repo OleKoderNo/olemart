@@ -13,7 +13,7 @@ type ProductDetailsProps = {
   actions?: ReactNode;
 };
 
-/** Displays product information, pricing, tags, optional actions, and customer reviews. */
+/** Displays theme-aware product information, pricing, tags, actions, and reviews. */
 export default function ProductDetails({
   product,
   headingLevel = 1,
@@ -25,6 +25,7 @@ export default function ProductDetails({
   return (
     <article className="space-y-10">
       <div className="grid gap-8 md:grid-cols-2">
+        {/* Keeps product images on a consistent light backdrop in both themes. */}
         <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
           <Image
             src={product.image.url}
@@ -42,7 +43,7 @@ export default function ProductDetails({
         </div>
 
         <div className="min-w-0 space-y-5">
-          <Title className="text-3xl font-bold text-slate-900">
+          <Title className="text-3xl font-bold text-foreground">
             {product.title}
           </Title>
 
@@ -56,7 +57,7 @@ export default function ProductDetails({
             discountedPrice={product.discountedPrice}
           />
 
-          <p className="whitespace-pre-line wrap-break-word leading-relaxed text-slate-700">
+          <p className="whitespace-pre-line wrap-break-word leading-relaxed text-muted-foreground">
             {product.description}
           </p>
 
@@ -66,7 +67,7 @@ export default function ProductDetails({
       </div>
 
       <section aria-label="Customer reviews" className="space-y-4">
-        <ReviewsHeading className="text-2xl font-semibold text-slate-900">
+        <ReviewsHeading className="text-2xl font-semibold text-foreground">
           Customer reviews
         </ReviewsHeading>
 
