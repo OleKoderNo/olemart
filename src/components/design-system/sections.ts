@@ -1,3 +1,4 @@
+import ThemeDocumentation from "./theme/ThemeDocumentation";
 import ButtonDocumentation from "./buttons/ButtonDocumentation";
 import ContainerDocumentation from "./container/ContainerDocumentation";
 import FooterDocumentation from "./footer/FooterDocumentation";
@@ -21,6 +22,11 @@ import ToastDocumentation from "./toast/ToastDocumentation";
  * IDs must match the corresponding documentation section IDs.
  */
 export const designSystemSections = [
+  {
+    id: "theme",
+    title: "Theme",
+    component: ThemeDocumentation,
+  },
   {
     id: "container",
     title: "Container",
