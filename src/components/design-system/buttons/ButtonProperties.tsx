@@ -22,27 +22,39 @@ const properties = [
   },
 ];
 
-/** Lists the supported button properties, defaults, and intended uses. */
+/** Lists Button properties and explains the shared styling boundary. */
 export default function ButtonProperties() {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold">Properties</h3>
+      <h3 className="text-lg font-semibold">Button properties</h3>
 
-      <dl className="divide-y divide-slate-200">
+      <dl className="divide-y divide-border">
         {properties.map(({ name, description }) => (
           <div
             key={name}
             className="grid gap-1 py-3 sm:grid-cols-[8rem_1fr] sm:gap-4"
           >
             <dt className="font-mono text-sm font-semibold">{name}</dt>
-            <dd className="text-slate-600">{description}</dd>
+            <dd className="text-muted-foreground">{description}</dd>
           </div>
         ))}
       </dl>
 
-      <p className="text-sm text-slate-600">
-        Native button attributes are also supported. clsx combines classes; it
-        does not resolve conflicting Tailwind styles.
+      <p className="text-sm text-muted-foreground">
+        Native button attributes are also supported. The text prop supplies the
+        content; children are not accepted.
+      </p>
+
+      <p className="text-sm text-muted-foreground">
+        Button and ButtonLink share the buttonStyles helper. Update shared
+        appearance there, while keeping action and navigation behaviour in their
+        respective components.
+      </p>
+
+      <p className="text-sm text-muted-foreground">
+        clsx combines classes; it does not resolve conflicting Tailwind styles.
+        Use className for additional layout styles rather than overriding theme
+        colours.
       </p>
     </div>
   );
