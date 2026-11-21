@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useCart } from "@/hooks/useCart";
+import Button from "@/components/ui/Button";
+import ButtonLink from "@/components/ui/ButtonLink";
 import MiniCartItem from "./MiniCartItem";
 
 type MiniCartContentsProps = {
@@ -15,12 +16,6 @@ export default function MiniCartContents({
   onViewCart,
 }: MiniCartContentsProps) {
   const { items, isReady, total } = useCart();
-
-  const actionClassName =
-    "inline-flex min-h-11 w-full cursor-pointer items-center justify-center " +
-    "rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground " +
-    "hover:bg-primary-hover focus-visible:outline-2 " +
-    "focus-visible:outline-offset-2 focus-visible:outline-focus";
 
   if (!isReady) {
     return (
@@ -58,20 +53,21 @@ export default function MiniCartContents({
       </p>
 
       {onViewCart ? (
-        <button
-          type="button"
-          className={actionClassName}
+        <Button
+          text="View cart"
+          className="w-full"
           onClick={() => {
             onClose();
             onViewCart();
           }}
-        >
-          View cart
-        </button>
+        />
       ) : (
-        <Link href="/cart" onClick={onClose} className={actionClassName}>
-          View cart
-        </Link>
+        <ButtonLink
+          href="/cart"
+          text="View cart"
+          onClick={onClose}
+          className="w-full"
+        />
       )}
     </div>
   );
