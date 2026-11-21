@@ -21,9 +21,9 @@ export default function ProductPriceExamples() {
       {examples.map(({ title, price, discountedPrice }) => (
         <div
           key={title}
-          className="space-y-3 rounded-lg border border-slate-200 p-4"
+          className="space-y-3 rounded-lg border border-border bg-surface p-4"
         >
-          <h3 className="text-lg font-semibold">{title}</h3>
+          <h3 className="text-lg font-semibold text-foreground">{title}</h3>
 
           <DiscountBadge price={price} discountedPrice={discountedPrice} />
 
