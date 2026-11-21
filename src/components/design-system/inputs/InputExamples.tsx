@@ -7,7 +7,7 @@ import Input from "@/components/ui/Input";
 export default function InputExamples() {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold">Examples</h3>
+      <h3 className="text-lg font-semibold text-foreground">Examples</h3>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Input
@@ -39,9 +39,9 @@ export default function InputExamples() {
         />
       </div>
 
-      <p className="text-sm text-slate-600">
-        The error example demonstrates appearance only. Validation will be
-        handled by the form.
+      <p className="text-sm text-muted-foreground">
+        The error example demonstrates appearance only. Validation is handled by
+        the parent form.
       </p>
     </div>
   );
