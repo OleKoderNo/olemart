@@ -1,7 +1,8 @@
 import CodeExample from "@/components/design-system/CodeExample";
 import GuidelineSection from "@/components/design-system/GuidelineSection";
+import DismissiblePanelGuidelines from "./DismissiblePanelGuidelines";
 
-/** Documents responsive navigation, theme switching, and keyboard interaction. */
+/** Documents responsive navigation, theme switching, and shared panel behaviour. */
 export default function HeaderDocumentation() {
   return (
     <GuidelineSection
@@ -54,6 +55,10 @@ export default function HeaderDocumentation() {
         appearances. Use Tab to check focus, Enter to activate controls, and
         Escape to close the mobile dropdown.
       </p>
+
+      <div className="border-t border-border pt-6">
+        <DismissiblePanelGuidelines />
+      </div>
     </GuidelineSection>
   );
 }
