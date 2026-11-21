@@ -46,7 +46,7 @@ function CartPreview() {
 
         <div className="grid items-start gap-8 lg:grid-cols-3">
           <div className="min-w-0 space-y-4 lg:col-span-2">
-            <h3 className="text-xl font-semibold text-slate-900">
+            <h3 className="text-xl font-semibold text-foreground">
               Demo checkout
             </h3>
 
