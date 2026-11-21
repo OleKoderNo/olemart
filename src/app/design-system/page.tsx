@@ -2,14 +2,15 @@ import DesignSystemNav from "@/components/design-system/DesignSystemNav";
 import { designSystemSections } from "@/components/design-system/sections";
 import Container from "@/components/ui/Container";
 
-/** Renders the design-system guide from the registered documentation sections. */
+/** Renders the theme-aware design-system guide from registered sections. */
 export default function DesignSystemPage() {
   return (
-    <main className="bg-slate-50 py-12 text-slate-900">
+    <main className="bg-background py-12 text-foreground">
       <Container className="space-y-8">
         <header className="space-y-3">
           <h1 className="text-4xl font-bold">OleMart design system</h1>
-          <p className="text-lg text-slate-600">
+
+          <p className="text-lg text-muted-foreground">
             Components, examples, and guidelines for building the website.
           </p>
         </header>
