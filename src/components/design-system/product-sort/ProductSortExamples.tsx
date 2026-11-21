@@ -50,16 +50,16 @@ export default function ProductSortExamples() {
         {products.map((product) => (
           <li
             key={product.id}
-            className="space-y-2 rounded-lg border border-slate-200 p-4"
+            className="space-y-2 rounded-lg border border-border bg-surface p-4"
           >
-            <p className="font-semibold">{product.title}</p>
+            <p className="font-semibold text-foreground">{product.title}</p>
 
             <ProductPrice
               price={product.price}
               discountedPrice={product.discountedPrice}
             />
 
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-muted-foreground">
               Rating: {product.rating} out of 5
             </p>
           </li>
