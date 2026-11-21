@@ -7,14 +7,15 @@ type HomePageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
-/** Displays the shop introduction and paginated product catalogue. */
+/** Displays the theme-aware shop introduction and paginated product catalogue. */
 export default function HomePage({ searchParams }: HomePageProps) {
   return (
-    <main className="bg-slate-50 py-12 text-slate-900">
+    <main className="bg-background py-12 text-foreground">
       <Container className="space-y-10">
         <header className="space-y-3">
           <h1 className="text-3xl font-bold sm:text-4xl">Welcome to OleMart</h1>
-          <p className="text-slate-600">
+
+          <p className="text-muted-foreground">
             Browse our collection and find your next favourite.
           </p>
         </header>
