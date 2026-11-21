@@ -10,7 +10,7 @@ export default function ContactDocumentation() {
       title="Contact form"
       description="A validated form composed of shared input, textarea, and button components."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>All fields are required.</li>
         <li>Full name and subject require at least 3 characters.</li>
         <li>Email must match a basic email format.</li>
