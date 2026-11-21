@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { IoCartOutline, IoClose } from "react-icons/io5";
 import clsx from "clsx";
 import { useCart } from "@/hooks/useCart";
+import IconButton from "@/components/ui/IconButton";
 import MiniCartContents from "./MiniCartContents";
 
 type MiniCartProps = {
@@ -67,10 +68,10 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
         }
       }}
     >
-      <button
+      <IconButton
         ref={triggerRef}
-        type="button"
-        aria-label={
+        theme="ghost"
+        label={
           isReady
             ? `Shopping cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}`
             : "Shopping cart, loading"
@@ -78,10 +79,7 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
         aria-expanded={isOpen}
         aria-controls={`${id}-panel`}
         onClick={() => setIsOpen((open) => !open)}
-        className="relative inline-flex size-11 cursor-pointer items-center
-          justify-center rounded-lg text-foreground hover:bg-surface-muted
-          focus-visible:outline-2 focus-visible:outline-offset-2
-          focus-visible:outline-focus"
+        className="relative"
       >
         <IoCartOutline aria-hidden="true" className="size-7" />
 
@@ -95,7 +93,7 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
             {itemCount}
           </span>
         )}
-      </button>
+      </IconButton>
 
       <div
         id={`${id}-panel`}
@@ -125,18 +123,13 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
                 Your cart
               </h2>
 
-              <button
-                type="button"
-                aria-label="Close cart"
+              <IconButton
+                theme="ghostMuted"
+                label="Close cart"
                 onClick={closeAndFocus}
-                className="inline-flex size-11 cursor-pointer items-center
-                  justify-center rounded-lg text-muted-foreground
-                  hover:bg-surface-muted focus-visible:outline-2
-                  focus-visible:outline-offset-2
-                  focus-visible:outline-focus"
               >
                 <IoClose aria-hidden="true" className="size-5" />
-              </button>
+              </IconButton>
             </div>
 
             <MiniCartContents
