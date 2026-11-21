@@ -10,7 +10,7 @@ export default function ProductGridDocumentation() {
       title="Product grid"
       description="A shared responsive layout for displaying product cards."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Pass an array of products using the products prop.</li>
         <li>Each product must have a unique ID.</li>
         <li>
@@ -26,7 +26,7 @@ export default function ProductGridDocumentation() {
 <ProductGrid products={products} />`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         These examples repeat the demo toy car with alternating discount states.
         Their generated IDs do not link to real product pages.
       </p>
