@@ -9,7 +9,7 @@ type InputProps = ComponentPropsWithoutRef<"input"> & {
 };
 
 /**
- * Renders a labelled input with optional help text and an error message.
+ * Renders a theme-aware labelled input with help text and error messages.
  * Connects descriptive text to the input for accessibility.
  * Validation is handled by the parent form.
  */
@@ -32,7 +32,7 @@ export default function Input({
     <div className="space-y-2">
       <label
         htmlFor={id}
-        className="block text-sm font-semibold text-slate-900"
+        className="block text-sm font-semibold text-foreground"
       >
         {label}
       </label>
@@ -43,25 +43,28 @@ export default function Input({
         aria-describedby={descriptionIds}
         aria-invalid={error ? true : invalid}
         className={clsx(
-          "min-h-11 w-full rounded-lg border bg-white px-3 py-2 text-slate-900",
-          "placeholder:text-slate-500",
+          "min-h-11 w-full rounded-lg border bg-surface px-3 py-2 text-foreground",
+          "placeholder:text-muted-foreground",
           "focus-visible:outline-2 focus-visible:outline-offset-2",
-          "disabled:cursor-not-allowed disabled:bg-slate-100",
+          "disabled:cursor-not-allowed disabled:bg-surface-muted",
           error
-            ? "border-red-700 focus-visible:outline-red-700"
-            : "border-slate-400 focus-visible:outline-slate-900",
+            ? "border-red-700 focus-visible:outline-red-700 dark:border-red-400 dark:focus-visible:outline-red-400"
+            : "border-input-border focus-visible:outline-focus",
           className,
         )}
       />
 
       {helpText && (
-        <p id={`${id}-help`} className="text-sm text-slate-600">
+        <p id={`${id}-help`} className="text-sm text-muted-foreground">
           {helpText}
         </p>
       )}
 
       {error && (
-        <p id={`${id}-error`} className="text-sm text-red-700">
+        <p
+          id={`${id}-error`}
+          className="text-sm text-red-700 dark:text-red-400"
+        >
           {error}
         </p>
       )}
