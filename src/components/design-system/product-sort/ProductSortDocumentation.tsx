@@ -10,7 +10,7 @@ export default function ProductSortDocumentation() {
       title="Product sorting"
       description="Sort the catalogue using a reusable, labelled select."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Sort the full catalogue before applying pagination.</li>
         <li>Price sorting uses the selling price after any discount.</li>
         <li>Default order preserves the order returned by the API.</li>
@@ -35,7 +35,7 @@ export default function ProductSortDocumentation() {
 />`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         These fictional products demonstrate sorting locally. The wooden train
         has the highest original price but the lowest selling price.
       </p>
