@@ -4,7 +4,7 @@ import Container from "@/components/ui/Container";
 import CheckoutContents from "@/components/checkout/CheckoutContents";
 
 export const metadata: Metadata = {
-  title: "Checkout | OleMart",
+  title: "Checkout",
   description: "Review your cart and complete the OleMart demo checkout.",
   robots: {
     index: false,
@@ -12,22 +12,26 @@ export const metadata: Metadata = {
   },
 };
 
-/** Displays the simulated checkout and customer details form. */
+/** Displays the theme-aware simulated checkout and customer details form. */
 export default function CheckoutPage() {
   return (
-    <main className="py-10">
+    <main className="bg-background py-10 text-foreground">
       <Container>
         <div className="mb-8 space-y-3">
           <Link
             href="/cart"
-            className="inline-block text-sm font-medium text-slate-700 underline underline-offset-4"
+            className="inline-flex min-h-11 items-center rounded px-2
+              text-sm font-medium text-muted-foreground underline
+              underline-offset-4 hover:text-foreground
+              focus-visible:outline-2 focus-visible:outline-offset-2
+              focus-visible:outline-focus"
           >
             Back to cart
           </Link>
 
-          <h1 className="text-3xl font-bold text-slate-900">Checkout</h1>
+          <h1 className="text-3xl font-bold">Checkout</h1>
 
-          <p className="text-slate-600">
+          <p className="text-muted-foreground">
             Enter your details to complete your demo order.
           </p>
         </div>
