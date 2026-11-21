@@ -13,8 +13,7 @@ const links = [
 ];
 
 /**
- * Renders shared navigation links and identifies the current page.
- * Displays the total item quantity beside the Cart link.
+ * Renders theme-aware navigation links and identifies the current page.
  * Calls onNavigate when a link is selected, when provided.
  */
 export default function NavLinks({
@@ -34,10 +33,10 @@ export default function NavLinks({
               "flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-3 text-center",
               "text-sm font-medium",
               "focus-visible:outline-2 focus-visible:outline-offset-2",
-              "focus-visible:outline-slate-900",
+              "focus-visible:outline-focus",
               pathname === href
-                ? "bg-slate-900 text-white"
-                : "text-slate-700 hover:bg-slate-100",
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:bg-surface-muted",
             )}
           >
             {text}
