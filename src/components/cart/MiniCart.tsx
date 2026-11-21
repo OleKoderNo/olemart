@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useId } from "react";
 import { IoCartOutline, IoClose } from "react-icons/io5";
 import clsx from "clsx";
 import { useCart } from "@/hooks/useCart";
+import { useDismissiblePanel } from "@/hooks/useDismissiblePanel";
 import IconButton from "@/components/ui/IconButton";
 import MiniCartContents from "./MiniCartContents";
 
@@ -11,62 +12,27 @@ type MiniCartProps = {
   onViewCart?: () => void;
 };
 
-/** Displays a theme-aware cart icon and animated, dismissible mini-cart panel. */
+/** Displays the mini cart using shared panel dismissal behaviour. */
 export default function MiniCart({ onViewCart }: MiniCartProps) {
   const id = useId();
   const { itemCount, isReady } = useCart();
-  const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    function handleOutsideClick(event: PointerEvent) {
-      if (
-        event.target instanceof Node &&
-        !containerRef.current?.contains(event.target)
-      ) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener("pointerdown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("pointerdown", handleOutsideClick);
-    };
-  }, [isOpen]);
-
-  /** Closes the panel and returns keyboard focus to its trigger. */
-  function closeAndFocus() {
-    setIsOpen(false);
-    triggerRef.current?.focus();
-  }
+  const {
+    isOpen,
+    containerRef,
+    triggerRef,
+    toggle,
+    close,
+    closeAndFocus,
+    handleBlur,
+    handleKeyDown,
+  } = useDismissiblePanel();
 
   return (
     <div
       ref={containerRef}
       className="relative"
-      onBlur={(event) => {
-        const nextTarget = event.relatedTarget;
-
-        // Disabling a quantity button can cause focus loss without a new target.
-        // Close only when focus moves to an actual element outside the mini cart.
-        if (
-          nextTarget instanceof Node &&
-          !event.currentTarget.contains(nextTarget)
-        ) {
-          setIsOpen(false);
-        }
-      }}
-      onKeyDown={(event) => {
-        if (event.key === "Escape" && isOpen) {
-          event.preventDefault();
-          event.stopPropagation();
-          closeAndFocus();
-        }
-      }}
+      onBlur={handleBlur}
+      onKeyDown={handleKeyDown}
     >
       <IconButton
         ref={triggerRef}
@@ -78,7 +44,7 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
         }
         aria-expanded={isOpen}
         aria-controls={`${id}-panel`}
-        onClick={() => setIsOpen((open) => !open)}
+        onClick={toggle}
         className="relative"
       >
         <IoCartOutline aria-hidden="true" className="size-7" />
@@ -132,10 +98,7 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
               </IconButton>
             </div>
 
-            <MiniCartContents
-              onClose={() => setIsOpen(false)}
-              onViewCart={onViewCart}
-            />
+            <MiniCartContents onClose={close} onViewCart={onViewCart} />
           </section>
         </div>
       </div>
