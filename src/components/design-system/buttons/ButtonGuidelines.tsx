@@ -33,7 +33,7 @@ export default function ButtonGuidelines() {
 
       <p className="text-sm text-slate-600">
         Use a Client Component when passing an onClick handler. Buttons default
-        to type="button".
+        to type=&quot;button&quot;.
       </p>
     </div>
   );

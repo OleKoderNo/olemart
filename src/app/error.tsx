@@ -11,7 +11,7 @@ export default function ErrorPage() {
         <h1 className="text-2xl font-bold">Something went wrong</h1>
 
         <p className="text-slate-600">
-          We couldn't load this page. Please try again.
+          We couldn&apos;t load this page. Please try again.
         </p>
 
         <Button text="Try again" onClick={() => window.location.reload()} />
