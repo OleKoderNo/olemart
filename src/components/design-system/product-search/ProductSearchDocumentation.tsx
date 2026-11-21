@@ -10,7 +10,7 @@ export default function ProductSearchDocumentation() {
       title="Product search"
       description="Search product titles and select a matching result."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Pass the complete catalogue, not just the visible product page.</li>
         <li>Search ignores letter casing and surrounding whitespace.</li>
         <li>An empty search hides the results panel.</li>
@@ -32,7 +32,7 @@ export default function ProductSearchDocumentation() {
 <ProductSearch products={products} />`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         Try “toy” for multiple results, “gold” for one, or “xyz” for no results.
         These fictional examples stay on this page.
       </p>
