@@ -1,13 +1,72 @@
 @import "tailwindcss";
 
+/* Makes dark: utilities follow the class set by ThemeProvider. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Default light-theme colours. */
 :root {
-  --background: #fcf8f8;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+  --muted-foreground: #475569;
+
+  --border: #e2e8f0;
+  --input-border: #64748b;
+
+  --primary: #0f172a;
+  --primary-hover: #334155;
+  --primary-foreground: #ffffff;
+
+  --focus: #2563eb;
+
+  --danger: #b91c1c;
+  --danger-hover: #991b1b;
+  --danger-foreground: #ffffff;
 }
 
+/* Overrides the shared colours when the dark theme is active. */
+:root.dark {
+  --background: #020617;
+  --foreground: #f1f5f9;
+
+  --surface: #0f172a;
+  --surface-muted: #1e293b;
+  --muted-foreground: #cbd5e1;
+
+  --border: #334155;
+  --input-border: #94a3b8;
+
+  --primary: #e2e8f0;
+  --primary-hover: #cbd5e1;
+  --primary-foreground: #0f172a;
+
+  --focus: #93c5fd;
+}
+
+/* Creates Tailwind utilities backed by the active theme colours. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input-border: var(--input-border);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-focus: var(--focus);
+
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-danger-foreground: var(--danger-foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

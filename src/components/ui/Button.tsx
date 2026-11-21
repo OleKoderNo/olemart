@@ -8,13 +8,12 @@ type ButtonProps = Omit<ComponentPropsWithoutRef<"button">, "children"> & {
   theme?: ButtonTheme;
 };
 
+/** Uses shared colour tokens so each variant supports light and dark mode. */
 const themes: Record<ButtonTheme, string> = {
-  primary:
-    "bg-slate-900 text-white enabled:hover:bg-slate-700 focus-visible:outline-slate-900",
+  primary: "bg-primary text-primary-foreground enabled:hover:bg-primary-hover",
   secondary:
-    "border border-slate-300 bg-white text-slate-900 enabled:hover:bg-slate-100 focus-visible:outline-slate-900",
-  danger:
-    "bg-red-700 text-white enabled:hover:bg-red-800 focus-visible:outline-red-700",
+    "border border-input-border bg-surface text-foreground enabled:hover:bg-surface-muted",
+  danger: "bg-danger text-danger-foreground enabled:hover:bg-danger-hover",
 };
 
 /**
@@ -39,6 +38,7 @@ export default function Button({
         "rounded-lg px-5 py-3 text-sm font-semibold",
         "transition-colors motion-reduce:transition-none",
         "focus-visible:outline-2 focus-visible:outline-offset-2",
+        "focus-visible:outline-focus",
         "disabled:cursor-not-allowed disabled:opacity-50",
         themes[theme],
         className,
