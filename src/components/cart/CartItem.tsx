@@ -11,7 +11,7 @@ type CartItemProps = {
   onRemove: () => void;
 };
 
-/** Displays a cart item with pricing, quantity controls, and removal. */
+/** Displays a theme-aware cart item with pricing, quantity controls, and removal. */
 export default function CartItem({
   item,
   onQuantityChange,
@@ -20,8 +20,9 @@ export default function CartItem({
   const { product, quantity } = item;
 
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-4">
+    <article className="rounded-xl border border-border bg-surface p-4 text-foreground">
       <div className="flex items-start gap-4">
+        {/* Keeps product images on a consistent light backdrop in both themes. */}
         <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-slate-50 sm:size-28">
           <Image
             src={product.image.url}
@@ -33,11 +34,11 @@ export default function CartItem({
         </div>
 
         <div className="min-w-0 space-y-2">
-          <h3 className="wrap-break-word text-lg font-semibold text-slate-900">
+          <h3 className="wrap-break-word text-lg font-semibold text-foreground">
             {product.title}
           </h3>
 
-          <p className="text-sm text-slate-600">Price per item</p>
+          <p className="text-sm text-muted-foreground">Price per item</p>
 
           <ProductPrice
             price={product.price}
@@ -61,7 +62,7 @@ export default function CartItem({
         />
       </div>
 
-      <p className="mt-4 font-semibold text-slate-900">
+      <p className="mt-4 font-semibold text-foreground">
         Item total: {getCartItemTotal(item).toFixed(2)} NOK
       </p>
     </article>
