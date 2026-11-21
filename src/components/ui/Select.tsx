@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import FormField from "./FormField";
+import { formControlStyles } from "./formControlStyles";
 
 type SelectProps = Omit<ComponentPropsWithoutRef<"select">, "children"> & {
   id: string;
@@ -8,7 +9,7 @@ type SelectProps = Omit<ComponentPropsWithoutRef<"select">, "children"> & {
   options: ReadonlyArray<{ value: string; label: string }>;
 };
 
-/** Renders a themed select inside the shared field wrapper. */
+/** Renders a select using the shared field wrapper and control styles. */
 export default function Select({
   id,
   label,
@@ -21,14 +22,12 @@ export default function Select({
       <select
         {...props}
         id={id}
-        className={clsx(
-          "min-h-11 w-full cursor-pointer rounded-lg border",
-          "border-input-border bg-surface px-3 py-2 text-sm text-foreground",
-          "focus-visible:outline-2 focus-visible:outline-offset-2",
-          "focus-visible:outline-focus",
-          "disabled:cursor-not-allowed disabled:opacity-50",
-          className,
-        )}
+        className={formControlStyles({
+          className: clsx(
+            "min-h-11 cursor-pointer text-sm disabled:opacity-50",
+            className,
+          ),
+        })}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
