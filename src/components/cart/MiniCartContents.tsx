@@ -9,7 +9,7 @@ type MiniCartContentsProps = {
   onViewCart?: () => void;
 };
 
-/** Displays mini-cart items, totals, and access to the full cart. */
+/** Displays theme-aware mini-cart items, totals, and access to the full cart. */
 export default function MiniCartContents({
   onClose,
   onViewCart,
@@ -18,17 +18,21 @@ export default function MiniCartContents({
 
   const actionClassName =
     "inline-flex min-h-11 w-full cursor-pointer items-center justify-center " +
-    "rounded-lg bg-slate-900 px-4 py-3 text-sm font-semibold text-white " +
-    "hover:bg-slate-700 focus-visible:outline-2 " +
-    "focus-visible:outline-offset-2 focus-visible:outline-slate-900";
+    "rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground " +
+    "hover:bg-primary-hover focus-visible:outline-2 " +
+    "focus-visible:outline-offset-2 focus-visible:outline-focus";
 
   if (!isReady) {
-    return <p role="status">Loading your cart…</p>;
+    return (
+      <p role="status" className="text-sm text-muted-foreground">
+        Loading your cart…
+      </p>
+    );
   }
 
   if (items.length === 0) {
     return (
-      <p role="status" className="text-sm text-slate-600">
+      <p role="status" className="text-sm text-muted-foreground">
         Your cart is empty.
       </p>
     );
@@ -47,7 +51,7 @@ export default function MiniCartContents({
       <p
         role="status"
         className="flex flex-wrap justify-between gap-2 border-t
-          border-slate-200 pt-4 font-semibold text-slate-900"
+          border-border pt-4 font-semibold text-foreground"
       >
         <span>Total</span>
         <span>{total.toFixed(2)} NOK</span>

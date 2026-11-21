@@ -10,7 +10,7 @@ type MiniCartProps = {
   onViewCart?: () => void;
 };
 
-/** Displays a cart icon and an animated, dismissible mini-cart panel. */
+/** Displays a theme-aware cart icon and animated, dismissible mini-cart panel. */
 export default function MiniCart({ onViewCart }: MiniCartProps) {
   const id = useId();
   const { itemCount, isReady } = useCart();
@@ -79,9 +79,9 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
         aria-controls={`${id}-panel`}
         onClick={() => setIsOpen((open) => !open)}
         className="relative inline-flex size-11 cursor-pointer items-center
-          justify-center rounded-lg text-slate-900 hover:bg-slate-100
+          justify-center rounded-lg text-foreground hover:bg-surface-muted
           focus-visible:outline-2 focus-visible:outline-offset-2
-          focus-visible:outline-slate-900"
+          focus-visible:outline-focus"
       >
         <IoCartOutline aria-hidden="true" className="size-7" />
 
@@ -89,8 +89,8 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
           <span
             aria-hidden="true"
             className="absolute -right-1 -top-1 flex min-h-5 min-w-5
-              items-center justify-center rounded-full bg-slate-900
-              px-1 text-xs font-semibold text-white"
+              items-center justify-center rounded-full bg-primary
+              px-1 text-xs font-semibold text-primary-foreground"
           >
             {itemCount}
           </span>
@@ -115,12 +115,12 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
           <section
             aria-labelledby={`${id}-heading`}
             className="max-h-[70dvh] space-y-4 overflow-y-auto rounded-xl
-              border border-slate-200 bg-white p-4 shadow-lg"
+              border border-border bg-surface p-4 text-foreground shadow-lg"
           >
             <div className="flex items-center justify-between gap-3">
               <h2
                 id={`${id}-heading`}
-                className="text-lg font-semibold text-slate-900"
+                className="text-lg font-semibold text-foreground"
               >
                 Your cart
               </h2>
@@ -130,10 +130,10 @@ export default function MiniCart({ onViewCart }: MiniCartProps) {
                 aria-label="Close cart"
                 onClick={closeAndFocus}
                 className="inline-flex size-11 cursor-pointer items-center
-                  justify-center rounded-lg text-slate-600
-                  hover:bg-slate-100 focus-visible:outline-2
+                  justify-center rounded-lg text-muted-foreground
+                  hover:bg-surface-muted focus-visible:outline-2
                   focus-visible:outline-offset-2
-                  focus-visible:outline-slate-900"
+                  focus-visible:outline-focus"
               >
                 <IoClose aria-hidden="true" className="size-5" />
               </button>
