@@ -9,7 +9,7 @@ type CartContentsProps = {
   checkoutAction?: ReactNode;
 };
 
-/** Displays loading feedback, cart items, and optional checkout controls. */
+/** Displays theme-aware loading and empty states, cart items, and checkout controls. */
 export default function CartContents({ checkoutAction }: CartContentsProps) {
   const { items, isReady, itemCount, total, setQuantity, removeItem } =
     useCart();
@@ -17,7 +17,7 @@ export default function CartContents({ checkoutAction }: CartContentsProps) {
   // Wait for restoration before deciding whether the cart is empty.
   if (!isReady) {
     return (
-      <p role="status" className="py-8 text-center text-slate-600">
+      <p role="status" className="py-8 text-center text-muted-foreground">
         Loading your cart…
       </p>
     );
@@ -27,13 +27,13 @@ export default function CartContents({ checkoutAction }: CartContentsProps) {
     return (
       <div
         role="status"
-        className="rounded-xl border border-slate-200 bg-white p-6"
+        className="rounded-xl border border-border bg-surface p-6"
       >
-        <h2 className="text-xl font-semibold text-slate-900">
+        <h2 className="text-xl font-semibold text-foreground">
           Your cart is empty
         </h2>
 
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-muted-foreground">
           Add a product from the shop to get started.
         </p>
       </div>
