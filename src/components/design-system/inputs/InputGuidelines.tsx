@@ -1,6 +1,6 @@
 import CodeExample from "@/components/design-system/CodeExample";
 
-/** Documents input usage and the shared form-field structure. */
+/** Documents input usage, shared field structure, and styling responsibilities. */
 export default function InputGuidelines() {
   return (
     <div className="space-y-4">
@@ -59,6 +59,33 @@ export default function InputGuidelines() {
         <li>
           Validation belongs to the parent form. FormField only displays the
           supplied feedback.
+        </li>
+      </ul>
+
+      <h3 className="text-lg font-semibold text-foreground">
+        Where to change styles
+      </h3>
+
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
+        <li>
+          Edit FormField for label styling, feedback text, and spacing around
+          the control.
+        </li>
+        <li>
+          Edit formControlStyles for shared control colours, borders, padding,
+          focus outlines, and error borders.
+        </li>
+        <li>
+          Keep control-specific styles in Input, Textarea, or Select, such as
+          height, textarea resizing, and disabled background or opacity.
+        </li>
+        <li>
+          The hasError option changes appearance only. It does not validate
+          values or set accessibility attributes.
+        </li>
+        <li>
+          Use className for additional layout styles. clsx combines classes but
+          does not resolve conflicting Tailwind styles.
         </li>
       </ul>
     </div>
