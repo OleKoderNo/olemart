@@ -44,7 +44,10 @@ export default function Pagination({
 
   return (
     <nav aria-label="Pagination" className="space-y-3">
-      <p aria-live="polite" className="text-center text-sm text-slate-600">
+      <p
+        aria-live="polite"
+        className="text-center text-sm text-muted-foreground"
+      >
         Page {currentPage} of {pageCount}
       </p>
 
@@ -64,7 +67,7 @@ export default function Pagination({
               {...pageProps(page)}
               text={String(page)}
               label={`Go to page ${page}`}
-              active={page === currentPage}
+              active={currentPage === page}
             />
           </li>
         ))}

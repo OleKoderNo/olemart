@@ -11,7 +11,7 @@ type PaginationLinkProps = {
 };
 
 /**
- * Renders a page link, or a button for locally controlled pagination.
+ * Renders a theme-aware page link or locally controlled pagination button.
  * Uses compact widths on mobile while preserving a comfortable tap height.
  */
 export default function PaginationLink({
@@ -28,11 +28,12 @@ export default function PaginationLink({
     "sm:px-3 sm:text-sm",
     "transition-colors motion-reduce:transition-none",
     {
-      "cursor-not-allowed border-slate-200 text-slate-400": disabled,
-      "border-slate-900 bg-slate-900 text-white": active && !disabled,
-      "border-slate-300 bg-white text-slate-700 hover:bg-slate-100":
+      "cursor-not-allowed border-border bg-surface-muted text-muted-foreground opacity-50":
+        disabled,
+      "border-primary bg-primary text-primary-foreground": active && !disabled,
+      "border-input-border bg-surface text-foreground hover:bg-surface-muted":
         !active && !disabled,
-      "cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900":
+      "cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus":
         !disabled,
     },
   );
