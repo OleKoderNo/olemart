@@ -10,7 +10,7 @@ export default function ToastDocumentation() {
       title="Toasts"
       description="Temporary feedback triggered by user actions."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Call useToast() from a client component inside ToastProvider.</li>
         <li>Use success, info, or error to choose the notification theme.</li>
         <li>Success and info messages dismiss after five seconds.</li>
@@ -30,7 +30,7 @@ showToast({
 });`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         These buttons display example notifications without changing cart data.
       </p>
 
