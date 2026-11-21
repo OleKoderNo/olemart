@@ -10,7 +10,7 @@ export default function ProductRatingDocumentation() {
       title="Product rating"
       description="A consistent rating display for product cards and detail pages."
     >
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>Pass the rating supplied by the API.</li>
         <li>Use the length of the reviews array for reviewCount.</li>
         <li>Ratings display one decimal place, out of five.</li>
