@@ -1,12 +1,12 @@
 import CodeExample from "@/components/design-system/CodeExample";
 
-/** Explains when to use each button theme and demonstrates its usage. */
+/** Explains button variants and usage with theme-aware documentation text. */
 export default function ButtonGuidelines() {
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold">Usage</h3>
+      <h3 className="text-lg font-semibold text-foreground">Usage</h3>
 
-      <ul className="list-disc space-y-2 pl-5 text-slate-700">
+      <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
         <li>
           <strong>Primary:</strong> the main action, such as adding to cart.
         </li>
@@ -31,7 +31,7 @@ export default function ButtonGuidelines() {
 <Button text="Unavailable" disabled />`}
       />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         Use a Client Component when passing an onClick handler. Buttons default
         to type=&quot;button&quot;.
       </p>
