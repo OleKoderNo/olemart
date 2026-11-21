@@ -7,21 +7,23 @@ type SearchResultsProps = {
   onProductSelect?: (product: SearchProduct) => void;
 };
 
-/** Displays matching products as links or local preview actions. */
+/** Displays theme-aware product links or local documentation preview actions. */
 export default function SearchResults({
   products,
   onSelect,
   onProductSelect,
 }: SearchResultsProps) {
   if (products.length === 0) {
-    return <p className="p-4 text-sm text-slate-600">No products found.</p>;
+    return (
+      <p className="p-4 text-sm text-muted-foreground">No products found.</p>
+    );
   }
 
   const resultClassName =
     "flex min-h-11 w-full cursor-pointer items-center rounded-lg " +
-    "px-4 py-3 text-left text-sm text-slate-900 hover:bg-slate-100 " +
+    "px-4 py-3 text-left text-sm text-foreground hover:bg-surface-muted " +
     "focus-visible:outline-2 focus-visible:-outline-offset-2 " +
-    "focus-visible:outline-slate-900";
+    "focus-visible:outline-focus";
 
   return (
     <ul aria-label="Matching products" className="p-2">

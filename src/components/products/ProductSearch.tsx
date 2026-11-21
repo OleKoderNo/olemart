@@ -10,7 +10,7 @@ type ProductSearchProps = {
   onProductSelect?: (product: SearchProduct) => void;
 };
 
-/** Searches product titles and displays a dismissible results panel. */
+/** Searches product titles and displays a theme-aware, dismissible results panel. */
 export default function ProductSearch({
   products,
   onProductSelect,
@@ -92,8 +92,8 @@ export default function ProductSearch({
         <div
           id={`${id}-results`}
           className="absolute inset-x-0 top-full z-20 mt-2 max-h-80
-            overflow-y-auto rounded-xl border border-slate-200
-            bg-white shadow-lg"
+            overflow-y-auto rounded-xl border border-border
+            bg-surface text-foreground shadow-lg"
         >
           <SearchResults
             products={matches}
