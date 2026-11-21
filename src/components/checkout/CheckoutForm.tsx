@@ -132,7 +132,7 @@ export default function CheckoutForm({ onComplete }: CheckoutFormProps) {
     >
       <CheckoutFields idPrefix={idPrefix} errors={errors} />
 
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted-foreground">
         Delivery country: Norway. This is a demo checkout. Your details are not
         submitted or saved, and no payment or real order is processed.
       </p>
