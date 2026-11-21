@@ -5,6 +5,7 @@ import { IoTrashOutline } from "react-icons/io5";
 import type { CartItem } from "@/types/cart";
 import { getCartItemTotal } from "@/lib/cart/cartTotals";
 import { useCart } from "@/hooks/useCart";
+import IconButton from "@/components/ui/IconButton";
 import QuantityControl from "./QuantityControl";
 
 type MiniCartItemProps = {
@@ -40,17 +41,13 @@ export default function MiniCartItem({ item }: MiniCartItemProps) {
           </p>
         </div>
 
-        <button
-          type="button"
-          aria-label={`Remove ${product.title} from cart`}
+        <IconButton
+          theme="danger"
+          label={`Remove ${product.title} from cart`}
           onClick={() => removeItem(product.id)}
-          className="inline-flex size-11 shrink-0 cursor-pointer items-center
-            justify-center rounded-lg text-muted-foreground hover:bg-danger
-            hover:text-danger-foreground focus-visible:outline-2
-            focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           <IoTrashOutline aria-hidden="true" className="size-5" />
-        </button>
+        </IconButton>
       </div>
 
       <QuantityControl

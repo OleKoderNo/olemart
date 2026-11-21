@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from "react";
 import clsx from "clsx";
 
-type IconButtonTheme = "secondary" | "ghost" | "ghostMuted";
+type IconButtonTheme = "secondary" | "ghost" | "ghostMuted" | "danger";
 
 type IconButtonProps = Omit<
   ComponentPropsWithRef<"button">,
@@ -12,11 +12,14 @@ type IconButtonProps = Omit<
   theme?: IconButtonTheme;
 };
 
-/** Keeps visual variants separate from shared sizing and interaction styles. */
+/** Defines each variant's colours, including its enabled hover state. */
 const themes: Record<IconButtonTheme, string> = {
-  secondary: "border border-input-border bg-surface text-foreground",
-  ghost: "text-foreground",
-  ghostMuted: "text-muted-foreground",
+  secondary:
+    "border border-input-border bg-surface text-foreground enabled:hover:bg-surface-muted",
+  ghost: "text-foreground enabled:hover:bg-surface-muted",
+  ghostMuted: "text-muted-foreground enabled:hover:bg-surface-muted",
+  danger:
+    "text-muted-foreground enabled:hover:bg-danger enabled:hover:text-danger-foreground",
 };
 
 /**
@@ -38,7 +41,7 @@ export default function IconButton({
       type={type}
       className={clsx(
         "inline-flex size-11 shrink-0 cursor-pointer items-center justify-center",
-        "rounded-lg enabled:hover:bg-surface-muted",
+        "rounded-lg",
         "focus-visible:outline-2 focus-visible:outline-offset-2",
         "focus-visible:outline-focus",
         "disabled:cursor-not-allowed disabled:opacity-50",
